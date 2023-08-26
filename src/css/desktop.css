@@ -7,14 +7,13 @@
 
 /* css variables */
 :root{
-    --primeColor1: #4169e1;
+    --primeColor1: royalblue;
     --primeColor2: #FFE5B4;
 }
 
-/* header of a website  */
-
+/*-------------------- header of a website----------------------------  */
 header{
-    height: 13vh;
+    height: 11vh;
     width: 100vw;
     background-color: var(--primeColor1);
     display: flex;
@@ -23,16 +22,80 @@ header{
 
 /* logo division of header  */
 #logodiv{
-    height: 80%;
+    height: 100%;
     width: 20%;
     /* border: 2px solid white; */
-    margin-top: 1.3vh;
     margin-left: 8vw;
     overflow: hidden;
 }
 
 #logodiv img{
-    height: 110%;
-    width: 100%;
-    margin-left: 1vw;
+    height: 70%;
+    width: 80%;
+    margin-top: 0.8vw;
 }
+
+/* serachbar design  */
+#searchdiv{
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 40%;
+    width: 40%;
+    margin-top: 3vh;
+    overflow: hidden;
+    padding: 0 0;
+    display: flex;
+    flex-direction: row;
+}
+
+#searchdiv > *{
+    border: 2px solid white;
+    height: 100%;
+}
+
+#searchdiv > input{
+    width: 93%;
+    padding-left: 5%;
+}
+#searchdiv > button{
+    width: 7%;
+    background-color: var(--primeColor2);
+}
+#searchdiv > button > img{
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* icon devision  */
+#headicon{
+    height: 55%;
+    width: 15%;
+    /* border: 2px solid white; */
+    overflow: hidden;
+    margin-top: 2.5vh;
+    margin-left: 7%;
+    display: flex;
+    flex-direction: row;
+}
+
+#headicon button{
+    margin-left: 15%;
+    background-color: transparent;
+    border: none;
+}
+#headicon > button > img{
+    height: 90%;
+    filter: invert();
+    border: none;
+}
+
+
+/* ------------------------------utility classes------------------------------------- */
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
