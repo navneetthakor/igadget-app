@@ -70,7 +70,7 @@ header{
 /* icon devision  */
 #headicon{
     height: 55%;
-    width: 15%;
+    width: 20%;
     /* border: 2px solid white; */
     overflow: hidden;
     margin-top: 2.5vh;
@@ -84,10 +84,39 @@ header{
     background-color: transparent;
     border: none;
 }
-#headicon > button > img{
-    height: 90%;
+#acntIcon img{
+    height: 100%;
+    /* margin-left: 3vw; */
+}
+#fvrtIcon > img, #shpIcon > img{
+    height: 80%;
     filter: invert();
-    border: none;
+}
+
+
+/* subheader styling  */
+subheader{
+    height: 5vh;
+    width: 100vw;
+    background-color: var(--primeColor2);
+    box-shadow: -1px 1px 8px -1px black;
+    display: flex;
+    flex-direction: row;
+    padding-left: 25vw;
+    align-items: center;
+}
+
+subheader a{
+    color: black;
+    margin-left: 5vw;
+    font-weight: 500;
+    font-size: 2.5vh;
+    text-decoration: none;
+}
+
+subheader a:hover{
+    text-decoration: underline;
+    color: brown;
 }
 
 
