@@ -15,6 +15,7 @@ export default function Navbar() {
   return (
     <>
     {/* this is navbar which always remian present on all the pages  */}
+    {/* <nav> */}
       <header>
         {/* logo division */}
         <div id="logodiv">
@@ -42,6 +43,7 @@ export default function Navbar() {
         <a href="/sell" >sell</a>
         <a href="/custsuport" >customer support</a>
       </subheader>
+      {/* </nav> */}
     </>
   )
 }
