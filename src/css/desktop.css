@@ -143,30 +143,18 @@ subheader a:hover {
 #homeBanner>img {
     height: 80%;
     width: 70%;
+    border-radius: 8px;
 }
 
 /* --------------------------------home banner brid------------------------------------- */
-#homeBanGrid>div img {
-    cursor: pointer;
-}
-
+/* marked for removal */
 .hgbincnt {
     height: 50%;
     width: 100%;
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
-}
-
-/* upper images */
-#hbgUpperImg>img {
-    height: 90%;
-    width: 40%;
-    margin-left: 3%;
-}
-
-#hbgUpperImg:first-child {
-    margin-left: 7%;
+    align-items: center;
+    justify-content: flex-start;
 }
 
 /* lowerdiv images  */
@@ -175,6 +163,28 @@ subheader a:hover {
     width: 30%;
     margin-left: 3.33%;
 }
+
+/* --------------------------Watch Grid------------------------------------------------ */
+#WGUpperImg {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* upper images */
+#WGUpperImg>img {
+    height: 90%;
+    width: 48%;
+    border-radius: 8px;
+}
+
+#femaleWatch {
+    margin-left: 3%;
+}
+
 
 /* ------------------------iteam Grid styling---------------------------------------- */
 .iteamGrid {
@@ -186,10 +196,6 @@ subheader a:hover {
 
 /* -----------------------------BGiteamcard styling------------------------------------ */
 #BGIteamCard {
-    /* border: 2px solid red; */
-    margin-top: 10vh;
-    margin-left: 20vw;
-    margin-bottom: 10vh;
     height: 30vh;
     width: 15vw;
     overflow: hidden;
@@ -230,6 +236,19 @@ subheader a:hover {
     text-decoration: line-through;
 }
 
+/* ------------------------------BottomGrid Styling-------------------------- */
+#bottomGrid{
+    height: 40%;
+    width: 100%;
+    /* margin-left: 10%; */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: whitesmoke;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
 
 /* ------------------------------utility classes------------------------------------- */
 .container {
@@ -237,4 +256,9 @@ subheader a:hover {
     width: 80vw;
     margin-left: 10vw;
     overflow: hidden;
+}
+
+/* to add pointer functionality */
+.link {
+    cursor: pointer;
 }

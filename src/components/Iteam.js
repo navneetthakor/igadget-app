@@ -5,7 +5,7 @@ export default function Iteam(props) {
   const {iteam} = props;
   return (
     <>
-    <div id='BGIteamCard'>
+    <div id='BGIteamCard' className='link'>
       <div id='iteamImage'>
         <img src={logo} alt=''/>
       </div>
