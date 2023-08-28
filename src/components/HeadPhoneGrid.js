@@ -10,7 +10,7 @@ export default function HeadPhoneGrid() {
         <SideGrid />
 
         {/* image division  */}
-        <div className="G1Image marginLeft">
+        <div className="GV1Image marginLeft">
           <img src={headPhone} alt="" />
         </div>
       </div>

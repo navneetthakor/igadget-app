@@ -310,15 +310,27 @@ subheader a:hover {
     margin-right: 5%;
 }
 
-/* to use in single image grid  */
-.G1Image{
+/* virtical single image in grid  */
+.GV1Image{
     height: 100%;
     width: 35%;
     border-radius: 8px;
     overflow: hidden;
 }
-.G1Image img{
+.GV1Image img{
     height: 100%;
     width: 100%;
-    border-radius: 5px;
+}
+
+/* horizontal single image in grid  */
+.GH1Image{
+    height: 50%;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 5%;
+}
+.GH1Image img{
+    height: 100%;
+    width: 100%;
 }

@@ -7,6 +7,7 @@ import HorizontalBanner from './HorizontalBanner';
 
 // image to provide in horizontalbanner component 
 import laptopBanner from '../photos/laptopBanner.png'
+import LaptopGrid from './LaptopGrid';
 export default function Home() {
   
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <MobileGrid/>
       <HeadPhoneGrid/>
       <HorizontalBanner image={laptopBanner}/>
+      <LaptopGrid/>
       <HomeBanner/>
     </div>
   )

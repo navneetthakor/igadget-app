@@ -7,7 +7,7 @@ export default function MobileGrid() {
     <>
     <div className='container topmargin flexRow'>
         {/* banner division  */}
-        <div className='G1Image marginRight'>
+        <div className='GV1Image marginRight'>
             <img src={mobilePhone} alt='' />
         </div>
 
