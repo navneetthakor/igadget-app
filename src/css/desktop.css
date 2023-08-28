@@ -185,6 +185,20 @@ subheader a:hover {
     margin-left: 3%;
 }
 
+/* ------------------------------Mobile Grid styling------------------------------ */
+#MGImage{
+    height: 100%;
+    width: 35%;
+    margin-right: 5%;
+    border-radius: 8px;
+    overflow: hidden;
+}
+#MGImage img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+}
+
 
 /* ------------------------iteam Grid styling---------------------------------------- */
 .iteamGrid {
@@ -194,19 +208,20 @@ subheader a:hover {
     align-items: center;
 }
 
-/* -----------------------------BGiteamcard styling------------------------------------ */
-#BGIteamCard {
-    height: 30vh;
-    width: 15vw;
+/* -----------------------------iteamcard styling------------------------------------ */
+#IteamCard {
+    height: 100%;
+    width: 100%;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     background-color: whitesmoke;
 }
 
-#BGIteamCard:hover {
+#IteamCard:hover {
     background-color: white;
     box-shadow: 1px 1px 20px lightgray;
+    border-radius: 5px;
 }
 
 #iteamImage {
@@ -238,17 +253,28 @@ subheader a:hover {
 
 /* ------------------------------BottomGrid Styling-------------------------- */
 #bottomGrid{
-    height: 40%;
+    height: 45%;
     width: 100%;
     /* margin-left: 10%; */
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
     align-items: center;
     background-color: whitesmoke;
     border-radius: 8px;
     overflow: hidden;
 }
 
+/* ---------------------------SideGrid styling----------------------------- */
+#sideGrid{
+    height: 100%;
+    width: 60%;
+    background-color: whitesmoke;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    justify-items: center;
+    align-items: center;
+    border-radius: 8px;
+}
 
 /* ------------------------------utility classes------------------------------------- */
 .container {
@@ -256,9 +282,24 @@ subheader a:hover {
     width: 80vw;
     margin-left: 10vw;
     overflow: hidden;
+    border: 2px solid red;
 }
 
 /* to add pointer functionality */
 .link {
     cursor: pointer;
+}
+
+.topmargin{
+    margin-top: 10vh;
+}
+
+.flexRow{
+    display: flex;
+    flex-direction: row;
+}
+
+.flexCol{
+    display: flex;
+    flex-direction: column;
 }
