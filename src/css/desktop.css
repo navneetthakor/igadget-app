@@ -266,7 +266,15 @@ subheader a:hover {
 }
 
 /* --------------------horizontal banner--------------------------------- */
+.hbanner{
+    height: 60vh;
+    width: 100vw;
+}
 
+.hbanner img{
+    height: 100%;
+    width: 100%;
+}
 
 /* ------------------------------utility classes------------------------------------- */
 .container {
