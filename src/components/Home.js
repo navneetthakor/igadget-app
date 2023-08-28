@@ -2,6 +2,7 @@ import React from 'react';
 import HomeBanner from './HomeBanner';
 import WatchGrid from './WatchGrid';
 import MobileGrid from './MobileGrid';
+import HeadPhoneGrid from './HeadPhoneGrid';
 
 export default function Home() {
   
@@ -10,6 +11,7 @@ export default function Home() {
       <HomeBanner/>
       <WatchGrid/>
       <MobileGrid/>
+      <HeadPhoneGrid/>
       <HomeBanner/>
     </div>
   )
