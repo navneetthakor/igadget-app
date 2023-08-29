@@ -10,6 +10,8 @@ import favorite from '../photos/favorite.png';
 import shoppingcart from '../photos/shoppingcart.png';
 import acountIcon from '../photos/acountIcon.png';
 
+import { Link } from 'react-router-dom';
+
 
 export default function Navbar() {
   return (
@@ -40,7 +42,7 @@ export default function Navbar() {
       <subheader>
         <a href="/home" >Home</a>
         <a href="/toddeal" >today's deal</a>
-        <a href="/sell" >sell</a>
+        <Link to="/sell" as={Link} >sell</Link>
         <a href="/custsuport" >customer support</a>
       </subheader>
       {/* </nav> */}
