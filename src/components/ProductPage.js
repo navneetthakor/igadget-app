@@ -43,6 +43,7 @@ export default function ProductPage() {
     const data = await response.json();
     console.log(data)
     setIteam(data)
+    // console.log(iteam[0].images[0])
     setTimeout(() => {
       setLoad(true)
       
@@ -50,14 +51,12 @@ export default function ProductPage() {
   }
 
   useEffect(() => {
-    console.log("Hello1")
     getIteams();
-    console.log("Hello2")
   }, []);
 
   return (
     <>
-    {load == false ?(
+    {load === false ?(
     <LoadIndicator/>
     ) : (
       <>
@@ -70,7 +69,8 @@ export default function ProductPage() {
             <img src={img3} alt="" />
           </div>
           <div id="pimgbig">
-            <img src={img1} alt="" />
+            {/* <img src={`http://localhost:5000/public/images_1694855536372-823517338.png`} alt="" /> */}
+            <img src={`http://localhost:5000/${iteam[0].images[0]}`.replace(/\\/g, '/')} alt="" />
           </div>
         </div>
 
@@ -81,9 +81,9 @@ export default function ProductPage() {
           <div id="totratings"></div>
 
           {/* overview division */}
-          <h4 className="flexRow">
+          <div className="flexRow">
             typical price : <h3 className="dummyPrice">{iteam[0].dummyPrice}/-</h3>
-          </h4>
+          </div>
           <div className="flexRow">
             Our price : <h3 className="price">{iteam[0].price}/-</h3>
           </div>
