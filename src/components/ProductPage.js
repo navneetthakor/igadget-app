@@ -1,29 +1,57 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import img1 from "../photos/igadget.png";
 import img2 from "../photos/laptop.png";
 import img3 from "../photos/headPhone.png";
 import Home from "./Home";
 
 export default function ProductPage() {
-  const iteam = {
-    title:
-      "Vivo Y21s is the future of mobile phones so don't forgot to buy it!!!",
-    price: 14500,
-    dummyPrice: 18000,
-    totrating: 4.5,
-    description: {
-      overview: {
-        company: " Vivo Phones",
-        modal: " Y21s ",
-        height: " 7 Inches",
-        width: " 4 Inches",
-      },
-      breif:
-        "babel-preset-react-app is part of the create-react-app project, which is not maintianed anymore. It is thus unlikely that this bug will ever be fixed. Add @babel/plugin-proposal-private-property-in-object to your devDependencies to work around this error. This will make this message go away.",
-    },
-  };
+  // const iteam = {
+  //   title:
+  //     "Vivo Y21s is the future of mobile phones so don't forgot to buy it!!!",
+  //   price: 14500,
+  //   dummyPrice: 18000,
+  //   totrating: 4.5,
+  //   description: {
+  //     overview: {
+  //       company: " Vivo Phones",
+  //       modal: " Y21s ",
+  //       height: " 7 Inches",
+  //       width: " 4 Inches",
+  //     },
+  //     breif:
+  //       "babel-preset-react-app is part of the create-react-app project, which is not maintianed anymore. It is thus unlikely that this bug will ever be fixed. Add @babel/plugin-proposal-private-property-in-object to your devDependencies to work around this error. This will make this message go away.",
+  //   },
+  const noteInitial = [];
+  const [iteam, setIteam] = useState(noteInitial);
+
+  // get note {fetching is performed in Home.js}
+  const getIteams = async() => {
+    // api call 
+    console.log("Started")
+    const url = 'http://localhost:5000/storeproducts/fetchallprods';
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6eyJpZCI6IjY0ZTA4MWQ5Yjk1OTk1YjgyZGI3ZTFkYSJ9LCJpYXQiOjE2OTQyNjA4OTZ9.GrZGoDU7ZeEdEhyYVYcIGOzRYpsOA0nxN1UKlpYZl2c"
+        // "auth-token": localStorage.getItem('token')
+      }
+    });
+    console.log("fetched")
+    const data = await response.json();
+    console.log(data)
+    setIteam(data)
+  }
+
+  useEffect(() => {
+    console.log("Hello1")
+    getIteams();
+    console.log("Hello2")
+  }, []);
+
   return (
     <>
+    {}
       <div className="container flexRow topmargin" id="prodMainDetl">
         {/* images devision */}
         <div id="prodImag" className="flexRow">
@@ -39,23 +67,23 @@ export default function ProductPage() {
 
         {/* main details devision  */}
         <div id="pdetails" className="flexCol">
-          <h1 style={{ marginBottom: "3%" }}>{iteam.title}</h1>
+          <h1 style={{ marginBottom: "3%" }}>{iteam[0].title}</h1>
           {/* rating division  */}
           <div id="totratings"></div>
 
           {/* overview division */}
           <h4 className="flexRow">
-            typical price : <h3 className="dummyPrice">{iteam.dummyPrice}/-</h3>
+            typical price : <h3 className="dummyPrice">{iteam[0].dummyPrice}/-</h3>
           </h4>
-          <h4 className="flexRow">
-            Our price : <h3 className="price">{iteam.price}/-</h3>
-          </h4>
+          <div className="flexRow">
+            Our price : <h3 className="price">{iteam[0].price}/-</h3>
+          </div>
 
           <div id="overview" className=" flexCol">
-            <span>company : {iteam.description.overview.company} </span>
-            <span>Modal : {iteam.description.overview.modal} </span>
-            <span>Height : {iteam.description.overview.height} </span>
-            <span>width : {iteam.description.overview.width} </span>
+            <span>company : {iteam[0].company} </span>
+            <span>Modal : {iteam[0].modal} </span>
+            <span>Height : {iteam[0].height} </span>
+            <span>width : {iteam[0].width} </span>
           </div>
 
           <div id="pcounter"></div>
@@ -71,7 +99,7 @@ export default function ProductPage() {
         <h2>
             Description :-
         </h2>
-        <h3>{iteam.description.breif}</h3>
+        <h3>{iteam[0].description}</h3>
       </div>
       <Home />
     </>
