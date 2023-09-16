@@ -3,6 +3,7 @@ import img1 from "../photos/igadget.png";
 import img2 from "../photos/laptop.png";
 import img3 from "../photos/headPhone.png";
 import Home from "./Home";
+import LoadIndicator from "./LoadIndicator";
 
 export default function ProductPage() {
   // const iteam = {
@@ -23,6 +24,7 @@ export default function ProductPage() {
   //   },
   const noteInitial = [];
   const [iteam, setIteam] = useState(noteInitial);
+  const [load, setLoad] = useState(false);
 
   // get note {fetching is performed in Home.js}
   const getIteams = async() => {
@@ -41,6 +43,10 @@ export default function ProductPage() {
     const data = await response.json();
     console.log(data)
     setIteam(data)
+    setTimeout(() => {
+      setLoad(true)
+      
+    }, 5000);
   }
 
   useEffect(() => {
@@ -51,7 +57,10 @@ export default function ProductPage() {
 
   return (
     <>
-    {}
+    {load == false ?(
+    <LoadIndicator/>
+    ) : (
+      <>
       <div className="container flexRow topmargin" id="prodMainDetl">
         {/* images devision */}
         <div id="prodImag" className="flexRow">
@@ -93,7 +102,7 @@ export default function ProductPage() {
           </div>
         </div>
       </div>
-
+        
       {/* descrioption division  */}
       <div id="pDesc" className="container flexCol">
         <h2>
@@ -102,6 +111,8 @@ export default function ProductPage() {
         <h3>{iteam[0].description}</h3>
       </div>
       <Home />
+      </>
+    )}
     </>
   );
 }
