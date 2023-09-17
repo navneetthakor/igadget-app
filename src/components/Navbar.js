@@ -42,7 +42,7 @@ export default function Navbar() {
       <subheader>
         <a href="/home" >Home</a>
         <a href="/toddeal" >today's deal</a>
-        <Link to="/sell" as={Link} >sell</Link>
+        <Link to="/prodpage" as={Link} >sell</Link>
         <a href="/custsuport" >customer support</a>
       </subheader>
       {/* </nav> */}

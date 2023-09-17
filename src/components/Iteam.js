@@ -1,11 +1,18 @@
 import React from 'react'
 import logo from '../photos/igadget.png'
+import {useNavigate} from 'react-router-dom'
 
 export default function Iteam(props) {
   const {iteam} = props;
+
+  //to use nevigation facilities
+  const navigate = useNavigate();
+  const handleClic = () =>{
+    navigate('/prodpage');
+  }
   return (
     <>
-    <div id='IteamCard' className='link'>
+    <div id='IteamCard' className='link' onClick={handleClic}>
       <div id='iteamImage'>
         <img src={logo} alt=''/>
       </div>

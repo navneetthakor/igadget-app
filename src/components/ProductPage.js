@@ -4,22 +4,7 @@ import Home from "./Home";
 import LoadIndicator from "./LoadIndicator";
 
 export default function ProductPage() {
-  // const iteam = {
-  //   title:
-  //     "Vivo Y21s is the future of mobile phones so don't forgot to buy it!!!",
-  //   price: 14500,
-  //   dummyPrice: 18000,
-  //   totrating: 4.5,
-  //   description: {
-  //     overview: {
-  //       company: " Vivo Phones",
-  //       modal: " Y21s ",
-  //       height: " 7 Inches",
-  //       width: " 4 Inches",
-  //     },
-  //     breif:
-  //       "babel-preset-react-app is part of the create-react-app project, which is not maintianed anymore. It is thus unlikely that this bug will ever be fixed. Add @babel/plugin-proposal-private-property-in-object to your devDependencies to work around this error. This will make this message go away.",
-  //   },
+
   const noteInitial = [];
   const [iteam, setIteam] = useState(noteInitial);
   const [load, setLoad] = useState(false);
@@ -42,9 +27,8 @@ export default function ProductPage() {
     console.log(data)
     setIteam(data)
     setTimeout(() => {
-      
       setLoad(true);
-    }, 5000);
+    }, 1000);
   }
 
   useEffect(() => {
@@ -65,7 +49,7 @@ export default function ProductPage() {
     setct(temp)
   }
 
-
+// -------------actual component to be returned---------------------
   return (
     <>
     {load === false ?(
