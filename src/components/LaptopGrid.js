@@ -1,8 +1,10 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import laptopBanner from '../photos/laptopGridBan.png';
 import BottomGrid from './BottomGrid';
+import LaptopContext from '../contexts/LaptopContext.js';
 
 export default function LaptopGrid() {
+  const {laptop} = useContext(LaptopContext);
   return (
     <>
         <div className='container topmargin flexCol'>
@@ -11,7 +13,7 @@ export default function LaptopGrid() {
             </div>
 
             {/* gottom grid  */}
-            <BottomGrid/>
+            <BottomGrid iteam={laptop}/>
         </div>
       
     </>

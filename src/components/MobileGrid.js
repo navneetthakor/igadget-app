@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import SideGrid from './SideGrid'
 import mobilePhone from '../photos/mobilePhone.jpg'
+import MobileContext from '../contexts/MobileContext.js';
+
 export default function MobileGrid() {
+
+  const {mobile} = useContext(MobileContext);
 
   return (
     <>
@@ -12,7 +16,7 @@ export default function MobileGrid() {
         </div>
 
         {/* iteam division */}
-        <SideGrid/>
+        <SideGrid iteam={mobile} />
     </div>
       
     </>

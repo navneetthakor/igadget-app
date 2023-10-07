@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from '../photos/igadget.png'
 import {useNavigate} from 'react-router-dom'
 
 export default function Iteam(props) {
@@ -14,7 +13,7 @@ export default function Iteam(props) {
     <>
     <div id='IteamCard' className='link' onClick={handleClic}>
       <div id='iteamImage'>
-        <img src={logo} alt=''/>
+        <img src={`http://localhost:5000/${iteam[0].images[0]}`.replace(/\\/g, '/')} alt=''/>
       </div>
       <div id='iteamDetails'>
         <h3>{iteam.title}</h3>
