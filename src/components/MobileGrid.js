@@ -2,14 +2,20 @@ import React, { useContext } from 'react'
 import SideGrid from './SideGrid'
 import mobilePhone from '../photos/mobilePhone.jpg'
 import MobileContext from '../contexts/MobileContext.js';
+import LoadIndicator from './LoadIndicator';
 
 export default function MobileGrid() {
 
-  const {mobile} = useContext(MobileContext);
+  let {mobile, load} = useContext(MobileContext);
+  console.log(mobile[0] + " " + load)
+  mobile = Array.from(mobile);
 
+  while(mobile === undefined)
+    return (<><LoadIndicator/></>)
+    
   return (
     <>
-    <div className='container topmargin flexRow'>
+    {load ? (<div className='container topmargin flexRow'>
         {/* banner division  */}
         <div className='GV1Image marginRight'>
             <img src={mobilePhone} alt='' />
@@ -17,7 +23,10 @@ export default function MobileGrid() {
 
         {/* iteam division */}
         <SideGrid iteam={mobile} />
-    </div>
+    </div>):(
+      <LoadIndicator/>
+    )}
+    
       
     </>
   )

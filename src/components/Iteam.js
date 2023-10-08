@@ -2,7 +2,7 @@ import React from 'react'
 import {useNavigate} from 'react-router-dom'
 
 export default function Iteam(props) {
-  const {iteam} = props;
+  const {title, dummyPrice, price, image} = props;
 
   //to use nevigation facilities
   const navigate = useNavigate();
@@ -13,11 +13,11 @@ export default function Iteam(props) {
     <>
     <div id='IteamCard' className='link' onClick={handleClic}>
       <div id='iteamImage'>
-        <img src={`http://localhost:5000/${iteam[0].images[0]}`.replace(/\\/g, '/')} alt=''/>
+        <img src={`http://localhost:5000/${image}`.replace(/\\/g, '/')} alt=''/>
       </div>
       <div id='iteamDetails'>
-        <h3>{iteam.title}</h3>
-        <h4> <span>&#8377;{iteam.dummyPrice}</span> &#8377;{iteam.price}</h4>
+        <h3>{title}</h3>
+        <h4> <span>&#8377;{dummyPrice}</span> &#8377;{price}</h4>
       </div>
       </div>
     </>

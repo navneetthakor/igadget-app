@@ -5,6 +5,7 @@ import WatchContext from "../contexts/WatchContext";
 import HeadphContext from '../contexts/HeadphContext';
 import LaptopContext from '../contexts/LaptopContext';
 import MobileContext from '../contexts/MobileContext';
+import LoadIndicator from "./LoadIndicator";
 
 export default function RootLayout() {
   // ----------------------------------------------------------------------------------
@@ -15,7 +16,7 @@ export default function RootLayout() {
   const [load, setLoad] = useState(false);
 
   // -------watchContext--------------
-  const [watch, setWatch] = useState("Navneetkumar");
+  const [watch, setWatch] = useState([]);
 
   const getWatch= async () =>{
     // api call 
@@ -29,11 +30,12 @@ export default function RootLayout() {
       }
     });
     const data = await response.json();
+    console.log(data);
     setWatch(data)
   }
 
   // -------MobileContext--------------
-  const [mobile, setMobile] = useState("Navneetkumar");
+  const [mobile, setMobile] = useState([]);
 
   const getMobile = async () =>{
     // api call 
@@ -47,10 +49,11 @@ export default function RootLayout() {
     });
     const data = await response.json();
     setMobile(data)
+    console.log(data);
   }
 
   // -------LaptopContext--------------
-  const [laptop, setLaptop] = useState("Navneetkumar");
+  const [laptop, setLaptop] = useState([]);
 
   const getLaptop = async () =>{
     // api call 
@@ -64,10 +67,11 @@ export default function RootLayout() {
     });
     const data = await response.json();
     setLaptop(data)
+    console.log(data);
   }
 
   // -------HeadphContext--------------
-  const [headph, setHeadph] = useState("Navneetkumar");
+  const [headph, setHeadph] = useState([]);
 
   const getHeadph = async () =>{
     // api call 
@@ -81,6 +85,7 @@ export default function RootLayout() {
     });
     const data = await response.json();
     setHeadph(data)
+    console.log(data);
   }
 
   useEffect(() => {
@@ -89,11 +94,13 @@ export default function RootLayout() {
     getHeadph();
     getLaptop();
     setLoad(true);
-  })
+  },[])
 
+  
+  
   return (
     <>
-      <WatchContext.Provider value={{ watch, setWatch,load }}>
+    {load ? (<WatchContext.Provider value={{ watch, setWatch,load }}>
         <MobileContext.Provider value={{ mobile, setMobile,load }}>
           <HeadphContext.Provider value={{ headph, setHeadph,load }}>
             <LaptopContext.Provider value={{ laptop, setLaptop, load }}>
@@ -105,6 +112,11 @@ export default function RootLayout() {
           </HeadphContext.Provider>
         </MobileContext.Provider>
       </WatchContext.Provider>
+    ):(
+      <LoadIndicator/>
+    )}
+    
     </>
+      
   );
 }

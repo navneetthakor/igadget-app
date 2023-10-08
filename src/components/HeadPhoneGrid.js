@@ -2,13 +2,19 @@ import React, { useContext } from "react";
 import SideGrid from "./SideGrid";
 import headPhone from "../photos/headPhone.png";
 import HeadphContext from "../contexts/HeadphContext.js"
+import LoadIndicator from "./LoadIndicator";
 
 export default function HeadPhoneGrid() {
   // taking data from context 
-  const {headph} = useContext(HeadphContext);
+  let {headph, load} = useContext(HeadphContext);
+  headph = Array.from(headph);
+
+  while(headph === undefined)
+    return (<><LoadIndicator/></>)
+
   return (
     <>
-      <div className="container flexRow topmargin">
+    {load ? (<div className="container flexRow topmargin">
         {/* grid area for iteams */}
         <SideGrid iteam={headph} />
 
@@ -16,7 +22,10 @@ export default function HeadPhoneGrid() {
         <div className="GV1Image marginLeft">
           <img src={headPhone} alt="" />
         </div>
-      </div>
+      </div>):(
+        <LoadIndicator/>
+      )}
+      
     </>
   );
 }

@@ -2,14 +2,15 @@ import React from 'react';
 import Iteam from './Iteam';
 
 export default function SideGrid(props) {
-  const {iteam} = props;
+  let {iteam} = props;
+  iteam = Array.from(iteam);
   return (
     <>
       <div id='sideGrid'>
             {
-                iteam.map((it)=>{
-                    return <Iteam iteam={it}/>
-                })
+                 iteam.map((a)=>{
+                  return <Iteam key={a._id} title={a.title} dummyPrice={a.dummyPrice} price={a.price} image={a.images[0]} />
+              })
             }
         </div>
     </>

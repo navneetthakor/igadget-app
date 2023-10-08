@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, {  useContext } from 'react'
 import BottomGrid from './BottomGrid'
 import maleWatch from '../photos/maleWatch.png';
 import femaleWatch from '../photos/femaleWatch.png';
@@ -7,8 +7,9 @@ import WatchContext from '../contexts/WatchContext';
 
 export default function WatchGrid() {
 
-  const {watch} = useContext(WatchContext);
-
+  let {watch, load} = useContext(WatchContext);
+  watch = Array.from(watch);
+  
   // const [watch, setWatch] = useState([]);
   // const [load, setLoad] = useState(false);
 
@@ -36,10 +37,13 @@ export default function WatchGrid() {
   //   getData();
   // }, []);
 
+  while(watch === undefined)
+    return (<><LoadIndicator/></>)
+
   return (
     <>
-    {/* {
-      load ? ( */}
+    {
+      load ? (
       <div className='container'>
       {/* upper 2 images */}
       <div id='WGUpperImg'>
@@ -49,8 +53,8 @@ export default function WatchGrid() {
       <BottomGrid iteam={watch}/>
    </div>
    
-   {/* ):(<LoadIndicator/>)
-    } */}
+   ):(<LoadIndicator/>)
+    }
       
     </>
   )
