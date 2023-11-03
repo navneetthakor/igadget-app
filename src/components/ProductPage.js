@@ -9,7 +9,7 @@ export default function ProductPage() {
   const [iteam, setIteam] = useState(noteInitial);
   const [load, setLoad] = useState(false);
 
-  // get note {fetching is performed in Home.js}
+  // get prod {fetching is performed in Home.js}
   const getIteams = async() => {
     // api call 
     console.log("Started")

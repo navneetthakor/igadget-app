@@ -1,9 +1,6 @@
 import React from "react";
-import { useContext } from "react";
-import WatchContext from "../contexts/WatchContext";
 
 export default function Footer() {
-  const {watch} = useContext(WatchContext);
   return (
     <>
       <div id="footer" className="flexRow topmargin">
@@ -12,7 +9,7 @@ export default function Footer() {
           <h3>navigation</h3>
           <a href="nk">Home</a>
           <a href="nk">today's deal</a>
-          <a href="nk">{watch}</a>
+          <a href="nk">sell</a>
           <a href="nk">customer support</a>
         </div>
 
