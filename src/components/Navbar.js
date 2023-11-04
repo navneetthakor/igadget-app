@@ -34,7 +34,7 @@ export default function Navbar() {
         {/* icon devision  */}
         <div id='headicon'>
           <button type="btn" id='fvrtIcon'><img src={favorite} alt=""/></button>
-          <button type="btn" id='shpIcon'><img src={shoppingcart} alt=""/></button>
+          <button type="btn" id='shpIcon'><Link to="/cart" as={Link}><img src={shoppingcart} alt=""/></Link></button>
           <button type="btn" id='acntIcon'><img src={acountIcon} alt="" /></button>
         </div>
       </header>

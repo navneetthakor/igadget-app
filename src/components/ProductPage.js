@@ -1,8 +1,9 @@
 import React, { useContext, useState } from "react";
 import heart from "../photos/heart.png";
-import Home from "./Home";
 import LoadIndicator from "./LoadIndicator";
 import ProdPageContext from "../contexts/ProdPageContext";
+import { add } from "../store/CartSlice";
+import { useDispatch } from "react-redux";
 
 export default function ProductPage() {
 
@@ -21,6 +22,12 @@ export default function ProductPage() {
     let temp = ct - 1;
     setct(temp)
   }
+
+// ---------------------------add to cart--------------------------
+const dispatch = useDispatch();
+const handleAddToCart = ()=>{
+  dispatch(add(prodp));
+}
 
 // -------------actual component to be returned---------------------
   return (
@@ -80,7 +87,7 @@ export default function ProductPage() {
             <div id="addFavorite">
               <img src={heart} alt="" />
             </div>
-            <div id="addToCart">
+            <div id="addToCart" onClick={handleAddToCart}>
               Add to Cart
             </div>
           </div>
@@ -94,7 +101,6 @@ export default function ProductPage() {
         </h2>
         <h3>{prodp.description}</h3>
       </div>
-      <Home />
       </>
     )}
     </>
