@@ -6,6 +6,7 @@ import HeadphContext from '../contexts/HeadphContext';
 import LaptopContext from '../contexts/LaptopContext';
 import MobileContext from '../contexts/MobileContext';
 import LoadIndicator from "./LoadIndicator";
+import ProdPageContext from "../contexts/ProdPageContext";
 
 export default function RootLayout() {
   // ----------------------------------------------------------------------------------
@@ -15,8 +16,11 @@ export default function RootLayout() {
   // ---------to indicate loading is done or not-----------
   const [load, setLoad] = useState(false);
 
-  // -------watchContext--------------
+  // -------WatchContext--------------
   const [watch, setWatch] = useState([]);
+
+  // -------ProdPageContext--------------
+  const [prodp, setProdp] = useState([]);
 
   const getWatch= async () =>{
     // api call 
@@ -104,10 +108,12 @@ export default function RootLayout() {
         <MobileContext.Provider value={{ mobile, setMobile,load }}>
           <HeadphContext.Provider value={{ headph, setHeadph,load }}>
             <LaptopContext.Provider value={{ laptop, setLaptop, load }}>
+              <ProdPageContext.Provider value={{prodp, setProdp, load}}>
               <Navbar />
               <main>
                 <Outlet />
               </main>
+              </ProdPageContext.Provider>
             </LaptopContext.Provider>
           </HeadphContext.Provider>
         </MobileContext.Provider>

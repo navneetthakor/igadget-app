@@ -9,7 +9,7 @@ export default function SideGrid(props) {
       <div id='sideGrid'>
             {
                  iteam.map((a)=>{
-                  return <Iteam key={a._id} title={a.title} dummyPrice={a.dummyPrice} price={a.price} image={a.images[0]} />
+                  return <Iteam key={a._id} iteam={a} />
               })
             }
         </div>
