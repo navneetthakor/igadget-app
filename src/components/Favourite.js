@@ -1,19 +1,23 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../store/CartSlice";
+import { fremove } from "../store/FavoriteSlice";
 
 export default function Cart() {
-  const product = useSelector((state) => state.cart);
-  console.log("Hello" + product);
+  const product = useSelector((state) => state.fav);
   const dispatch = useDispatch();
 
   //function to remove iteam from card
   const removeToCart = (prod) => {
-    dispatch(remove(prod));
+    dispatch(fremove(prod));
   };
 
+//------------------function add to cart-------------------
+const handleAddToCart = () =>{
+    
+} 
+
   // function to display all the iteams that are in the cart
-  const cards = product?.map((prodp) => {
+  const favs = product?.map((prodp) => {
     return (
       <div className="FCart flexRow">
         <div className="FCartProd flexRow" style={{ width: "50%", textAlign: "center" }}>
@@ -48,11 +52,11 @@ export default function Cart() {
             Price
           </div>
         </div>
-        {cards}
+        {favs}
       </div>
 
       {/* to proceed for chekout  */}
-      <button className="PrimButton" style={{marginLeft: "48vw"}}>Chekout</button>
+      <button className="PrimButton" style={{marginLeft: "48vw"}} onClick={handleAddToCart}>Add to Cart</button>
     </>
   );
 }

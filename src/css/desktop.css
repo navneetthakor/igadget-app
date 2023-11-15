@@ -471,6 +471,44 @@ subheader a:hover {
     padding-left: 10%;
 }
 
+/* -------------------------------------------------------------------------------------- */
+/* ---------------------------- Add-to-cart --------------------------------------------- */
+.CartMain{
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    /* border: 2px solid grey; */
+    font-size: 2.7vh;
+}
+
+
+/* --------------------related to Addtocart, addtoFavourit----------------------------- */
+.FCart{
+    height: 15vh;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 2vh;
+    /* border: 2px solid red; */
+}
+
+.FCartExt{
+    margin-top: 5vh;
+}
+
+.FCartProd > img{
+    /* border: 2px solid red; */
+    height: 100%;
+    width: 20%;
+    margin-left: 2%;
+    border-radius: 8px;
+}
+.FCartProd > div{
+    margin-left: 3vw;
+    margin-top: 5vh;
+    /* margin: auto; */
+}
+
 
 /* ------------------------------utility classes------------------------------------- */
 .container {
@@ -539,4 +577,36 @@ subheader a:hover {
 .GH1Image img{
     height: 100%;
     width: 100%;
+}
+
+/* primary heading styling  */
+.PrimHead{
+    font-weight: 900;
+    text-decoration: underline;
+    width: 100%;
+    margin: 2vh 5vw;
+    /* border: 2px solid red; */
+
+}
+
+/* primary button  */
+.PrimButton{
+    height: 5vh;
+    width: 7vw;
+    margin-left: 3vw;
+    margin-top: 5vh;
+    font-size: 2.3vh;
+    background-color: var(--primeColor2);
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+.PrimButton:hover{
+    background-color: var(--primeColor1);
+    color: white;
+}
+
+.PrimButton:active{
+    background-color: orangered;
+    color: white;
 }

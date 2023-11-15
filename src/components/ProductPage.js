@@ -3,6 +3,7 @@ import heart from "../photos/heart.png";
 import LoadIndicator from "./LoadIndicator";
 import ProdPageContext from "../contexts/ProdPageContext";
 import { add } from "../store/CartSlice";
+import { fadd } from "../store/FavoriteSlice";
 import { useDispatch } from "react-redux";
 
 export default function ProductPage() {
@@ -26,7 +27,14 @@ export default function ProductPage() {
 // ---------------------------add to cart--------------------------
 const dispatch = useDispatch();
 const handleAddToCart = ()=>{
-  dispatch(add(prodp));
+  const updatedProd = {...prodp, ct:ct};
+  dispatch(add(updatedProd));
+}
+
+// --------------------------add to fav--------------------------
+const handleAddToFav = ()=>{
+  const updatedProd = {...prodp, ct:ct};
+  dispatch(fadd(updatedProd));
 }
 
 // -------------actual component to be returned---------------------
@@ -84,7 +92,7 @@ const handleAddToCart = ()=>{
             <div id="max" onClick={handleMax}>+</div>
           </div>
           <div id="cart" className="flexRow">
-            <div id="addFavorite">
+            <div id="addFavorite" onClick={handleAddToFav}>
               <img src={heart} alt="" />
             </div>
             <div id="addToCart" onClick={handleAddToCart}>

@@ -9,8 +9,9 @@ import searchicon from '../photos/searchIcon.svg';
 import favorite from '../photos/favorite.png';
 import shoppingcart from '../photos/shoppingcart.png';
 import acountIcon from '../photos/acountIcon.png';
-
 import { Link } from 'react-router-dom';
+
+// import { Link } from 'react-router-dom';
 
 
 export default function Navbar() {
@@ -34,15 +35,15 @@ export default function Navbar() {
         {/* icon devision  */}
         <div id='headicon'>
           <button type="btn" id='fvrtIcon'><img src={favorite} alt=""/></button>
-          <button type="btn" id='shpIcon'><Link to="/cart" as={Link}><img src={shoppingcart} alt=""/></Link></button>
+          <button type="btn" id='shpIcon'><img src={shoppingcart} alt=""/></button>
           <button type="btn" id='acntIcon'><img src={acountIcon} alt="" /></button>
         </div>
       </header>
       
       <subheader>
-        <a href="/home" >Home</a>
-        <a href="/toddeal" >today's deal</a>
-        <Link to="/prodpage" as={Link} >sell</Link>
+        <Link ot="/" as={Link}>Home</Link>
+        <Link to="/fav" as={Link}>today's deal</Link>
+        <Link to="/cart"  as={Link} >sell</Link>
         <a href="/custsuport" >customer support</a>
       </subheader>
       {/* </nav> */}
