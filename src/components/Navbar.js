@@ -34,9 +34,9 @@ export default function Navbar() {
 
         {/* icon devision  */}
         <div id='headicon'>
-          <button type="btn" id='fvrtIcon'><img src={favorite} alt=""/></button>
-          <button type="btn" id='shpIcon'><img src={shoppingcart} alt=""/></button>
-          <button type="btn" id='acntIcon'><img src={acountIcon} alt="" /></button>
+          <Link to="/fav" as={Link} className='headbtn' id='fvrtIcon'><img src={favorite} alt=""/></Link>
+          <Link to="/cart" as={Link} className='headbtn' id='shpIcon'><img src={shoppingcart} alt=""/></Link>
+          <Link  className='headbtn' id='acntIcon'><img src={acountIcon} alt="" /></Link>
         </div>
       </header>
       
@@ -44,7 +44,7 @@ export default function Navbar() {
         <Link ot="/" as={Link}>Home</Link>
         <Link to="/fav" as={Link}>today's deal</Link>
         <Link to="/cart"  as={Link} >sell</Link>
-        <a href="/custsuport" >customer support</a>
+        <Link >customer support</Link>
       </subheader>
       {/* </nav> */}
     </>
