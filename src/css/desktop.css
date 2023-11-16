@@ -325,16 +325,10 @@ subheader a:hover {
     /* border: 2px solid green; */
 }
 #pImgContainer{
-    /* border: 2px solid red; */
     height: 13%;
     width: 100%;
-    /* display: grid;
-    grid-template-columns: repeat(2,1fr);
-    align-items: center;
-    background-color: whitesmoke;
-    border-radius: 8px;
-    overflow: hidden; */
 }
+
 #pImgContainer img{
     margin-bottom: 2%;
     margin-right: 2%;
@@ -507,6 +501,71 @@ subheader a:hover {
     margin-left: 3vw;
     margin-top: 5vh;
     /* margin: auto; */
+}
+
+
+/* -------------------------------------------------------------------------------------- */
+/* --------------------------------User Account------------------------------------------ */
+#userContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 84vh;
+}
+
+#usercnt{
+    height: 75vh;
+    width: 35vw;
+    border: 2px solid gray;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* user profile heading  */
+#userHead{
+    height: 25%;
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: row;
+    background-image: linear-gradient(to bottom right, darkblue, #cead61);
+    align-items: center;
+}
+
+#userHead > img{
+    height: 80%;
+    overflow: hidden;
+    border: 1px solid gray;
+    border-radius: 220px;
+    background-color: whitesmoke;
+    margin-left: 5%;
+}
+#userHead > div{
+    font-size: 4.5vh;
+    font-weight: bold;
+    margin-left: 7%;
+    color: white;
+}
+
+/* user profile body  */
+#userBody{
+    background-color: whitesmoke;
+    height: 75%;
+}
+
+#userBody > button{
+    height: 15%;
+    font-size: 2.5vh;
+    text-align: center;
+    border: 1px solid gray;
+    cursor: pointer;
+}
+#userBody > button:hover{
+    background-color: var(--primeColor1);
+    color: white;
+}
+#userBody > button:active{
+    background-color: orangered;
+    color: white;
 }
 
 

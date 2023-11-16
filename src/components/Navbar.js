@@ -1,7 +1,7 @@
 import React from 'react';
 // css file styling defined 
 import '../css/desktop.css';
-// import { Link } from 'react-router-dom'
+
 
 // logo importing 
 import logo from '../photos/igadgetnobg.png';
@@ -36,7 +36,7 @@ export default function Navbar() {
         <div id='headicon'>
           <Link to="/fav" as={Link} className='headbtn' id='fvrtIcon'><img src={favorite} alt=""/></Link>
           <Link to="/cart" as={Link} className='headbtn' id='shpIcon'><img src={shoppingcart} alt=""/></Link>
-          <Link  className='headbtn' id='acntIcon'><img src={acountIcon} alt="" /></Link>
+          <Link to="/useracnt" as={Link} className='headbtn' id='acntIcon'><img src={acountIcon} alt="" /></Link>
         </div>
       </header>
       
@@ -44,7 +44,7 @@ export default function Navbar() {
         <Link to="/" as={Link}>Home</Link>
         <Link to="/fav" as={Link}>today's deal</Link>
         <Link to="/cart"  as={Link} >sell</Link>
-        <Link >customer support</Link>
+        <Link to="/useracnt" as={Link}>customer support</Link>
       </subheader>
       {/* </nav> */}
     </>
