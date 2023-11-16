@@ -41,7 +41,7 @@ export default function Navbar() {
       </header>
       
       <subheader>
-        <Link ot="/" as={Link}>Home</Link>
+        <Link to="/" as={Link}>Home</Link>
         <Link to="/fav" as={Link}>today's deal</Link>
         <Link to="/cart"  as={Link} >sell</Link>
         <Link >customer support</Link>
