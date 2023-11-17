@@ -569,6 +569,27 @@ subheader a:hover {
 }
 
 
+/* ------------------------------------------------------------------------------------ */
+/* -----------------------Admin login----------------------------------------------- */
+.admlgnContainer{
+    height: 60vh;
+    width: 30vw;
+    border: 2px solid gray;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.admlgnContainer > input{
+    padding: 8px;
+    width: 80%;
+    margin-inline: auto;
+    margin-top: 5vh;
+    border-radius: 5px;
+    border: 2px solid gray;
+}
+
 /* ------------------------------utility classes------------------------------------- */
 .container {
     height: 80vh;
@@ -642,8 +663,9 @@ subheader a:hover {
 .PrimHead{
     font-weight: 900;
     text-decoration: underline;
-    width: 100%;
-    margin: 2vh 5vw;
+    font-size: 3.5vh;
+    /* width: 100%; */
+    /* margin: 2vh 5vw; */
     /* border: 2px solid red; */
 
 }
@@ -652,7 +674,7 @@ subheader a:hover {
 .PrimButton{
     height: 5vh;
     width: 7vw;
-    margin-left: 3vw;
+    /* margin-left: 3vw; */
     margin-top: 5vh;
     font-size: 2.3vh;
     background-color: var(--primeColor2);
@@ -668,4 +690,14 @@ subheader a:hover {
 .PrimButton:active{
     background-color: orangered;
     color: white;
+}
+
+/* used in admin login and signup */
+.flexCenter{
+    /* border: 2px solid red; */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
