@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../store/CartSlice";
+import Navbar from "./Navbar";
 
 export default function Cart() {
   const product = useSelector((state) => state.cart);
@@ -34,6 +35,7 @@ export default function Cart() {
   });
   return (
     <>
+      <Navbar/>
       <h1 className="PrimHead"> Your Cart</h1>
       <div className="CartMain flexCol">
         {/* to add headings  */}

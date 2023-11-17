@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fremove } from "../store/FavoriteSlice";
+import Navbar from "./Navbar";
 
 export default function Cart() {
   const product = useSelector((state) => state.fav);
@@ -38,6 +39,7 @@ const handleAddToCart = () =>{
   });
   return (
     <>
+      <Navbar/>
       <h1 className="PrimHead"> Your Cart</h1>
       <div className="CartMain flexCol">
         {/* to add headings  */}

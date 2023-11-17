@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Navbar from "./Navbar";
 import { Outlet } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../store/Store";
@@ -119,7 +118,6 @@ export default function RootLayout() {
               <HeadphContext.Provider value={{ headph, setHeadph, load }}>
                 <LaptopContext.Provider value={{ laptop, setLaptop, load }}>
                   <ProdPageContext.Provider value={{ prodp, setProdp, load }}>
-                    <Navbar />
                     <main>
                       <Outlet />
                     </main>

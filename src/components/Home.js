@@ -9,10 +9,12 @@ import HorizontalBanner from './HorizontalBanner';
 import laptopBanner from '../photos/laptopBanner.png'
 import LaptopGrid from './LaptopGrid';
 import Footer from './Footer';
+import Navbar from './Navbar';
 export default function Home() {
   
   return (
     <div>
+      <Navbar/>
       <HomeBanner/>
       <WatchGrid/>
       <MobileGrid/>

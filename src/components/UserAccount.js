@@ -1,12 +1,14 @@
 import React from 'react'
 import acountIcon from '../photos/acountIcon.png'
 import { useNavigate } from 'react-router-dom'
+import Navbar from './Navbar';
 
 
 export default function UserAccount() {
     const navigate = useNavigate();
   return (
     <>
+    <Navbar/>
     {/* overall box */}
     <div id='userContainer'>
         <div  id='usercnt'>

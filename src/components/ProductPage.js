@@ -5,6 +5,7 @@ import ProdPageContext from "../contexts/ProdPageContext";
 import { add } from "../store/CartSlice";
 import { fadd } from "../store/FavoriteSlice";
 import { useDispatch } from "react-redux";
+import Navbar from "./Navbar";
 
 export default function ProductPage() {
 
@@ -40,6 +41,7 @@ const handleAddToFav = ()=>{
 // -------------actual component to be returned---------------------
   return (
     <>
+    <Navbar/>
     {load === false ?(
     <LoadIndicator/>
     ) : (
