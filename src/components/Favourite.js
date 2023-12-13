@@ -9,7 +9,7 @@ export default function Cart() {
 
   //function to remove iteam from card
   const removeToCart = (prod) => {
-    dispatch(fremove(prod));
+    dispatch(fremove(prod._id));
   };
 
 //------------------function add to cart-------------------

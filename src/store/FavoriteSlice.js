@@ -9,7 +9,7 @@ const favoriteSlice = createSlice({
             state.push(action.payload);
         },
         fremove(state, action){
-            state.pop(action.payload);
+            return state.filter((iteam) => iteam._id !== action.payload)
         }
     }
 });

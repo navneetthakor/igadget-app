@@ -10,7 +10,7 @@ export default function Cart() {
 
   //function to remove iteam from card
   const removeToCart = (prod) => {
-    dispatch(remove(prod));
+    dispatch(remove(prod._id));
   };
 
   // function to display all the iteams that are in the cart

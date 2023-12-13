@@ -9,7 +9,7 @@ const cartSlice = createSlice({
             state.push(action.payload);
         },
         remove(state, action){
-            state.pop(action.payload);
+            return state.filter((iteam) => iteam._id !== action.payload)
         }
     }
 });
