@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Form } from 'react-router-dom'
 
 export default function AdminLogin(props) {
     const { setNext } = props.iteam;
@@ -29,7 +28,6 @@ export default function AdminLogin(props) {
         const data = await response.json();
 
         localStorage.setItem('admin', data.authtoken);
-        // console.log(data);
 
         if(data.signal === "green")
         setNext(true);
@@ -50,14 +48,12 @@ export default function AdminLogin(props) {
             }
         });
         const data = await response.json();
-        console.log(data)
         if(data.signal === "green")
         setNext(true);
 
     }
 
     useEffect(()=>{
-        console.log("admin")
         if(localStorage.getItem('admin')) autoLogin();
     })
 
