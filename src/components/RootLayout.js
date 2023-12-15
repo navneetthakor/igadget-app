@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import { Provider } from "react-redux";
+
+// store related imports
 import store from "../store/Store";
+import { Provider } from "react-redux";
+
+// importing contexts
 import WatchContext from "../contexts/WatchContext";
 import HeadphContext from "../contexts/HeadphContext";
 import LaptopContext from "../contexts/LaptopContext";
 import MobileContext from "../contexts/MobileContext";
-import LoadIndicator from "./LoadIndicator";
 import ProdPageContext from "../contexts/ProdPageContext";
+import CommonContext from "../contexts/CommonContext";
+
+// loader (will shown till data is not fetched )
+import LoadIndicator from "./LoadIndicator";
 
 export default function RootLayout() {
   // ----------------------------------------------------------------------------------
@@ -16,6 +23,9 @@ export default function RootLayout() {
 
   // ---------to indicate loading is done or not-----------
   const [load, setLoad] = useState(false);
+
+  // --------CommonContext------------
+  const [common, setCommon] = useState([]);
 
   // -------WatchContext--------------
   const [watch, setWatch] = useState([]);
@@ -37,7 +47,6 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    console.log(data);
     setWatch(data);
   };
 
@@ -58,7 +67,6 @@ export default function RootLayout() {
     });
     const data = await response.json();
     setMobile(data);
-    console.log(data);
   };
 
   // -------LaptopContext--------------
@@ -78,7 +86,6 @@ export default function RootLayout() {
     });
     const data = await response.json();
     setLaptop(data);
-    console.log(data);
   };
 
   // -------HeadphContext--------------
@@ -98,7 +105,6 @@ export default function RootLayout() {
     });
     const data = await response.json();
     setHeadph(data);
-    console.log(data);
   };
 
   useEffect(() => {
@@ -113,19 +119,21 @@ export default function RootLayout() {
     <>
       {load ? (
         <Provider store={store}>
-          <WatchContext.Provider value={{ watch, setWatch, load }}>
-            <MobileContext.Provider value={{ mobile, setMobile, load }}>
-              <HeadphContext.Provider value={{ headph, setHeadph, load }}>
-                <LaptopContext.Provider value={{ laptop, setLaptop, load }}>
-                  <ProdPageContext.Provider value={{ prodp, setProdp, load }}>
-                    <main>
-                      <Outlet />
-                    </main>
-                  </ProdPageContext.Provider>
-                </LaptopContext.Provider>
-              </HeadphContext.Provider>
-            </MobileContext.Provider>
-          </WatchContext.Provider>
+          <CommonContext.Provider value={{ common, setCommon }}>
+            <WatchContext.Provider value={{ watch, setWatch, load }}>
+              <MobileContext.Provider value={{ mobile, setMobile, load }}>
+                <HeadphContext.Provider value={{ headph, setHeadph, load }}>
+                  <LaptopContext.Provider value={{ laptop, setLaptop, load }}>
+                    <ProdPageContext.Provider value={{ prodp, setProdp, load }}>
+                      <main>
+                        <Outlet />
+                      </main>
+                    </ProdPageContext.Provider>
+                  </LaptopContext.Provider>
+                </HeadphContext.Provider>
+              </MobileContext.Provider>
+            </WatchContext.Provider>
+          </CommonContext.Provider>
         </Provider>
       ) : (
         <LoadIndicator />

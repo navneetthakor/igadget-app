@@ -4,7 +4,6 @@ import ProdPageContext from '../contexts/ProdPageContext';
 
 export default function Iteam(props) {
   const {iteam} = props;
-  console.log(iteam);
   //to use nevigation facilities
   const navigate = useNavigate();
   const {setProdp} = useContext(ProdPageContext);

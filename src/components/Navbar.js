@@ -1,20 +1,26 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
+
 // css file styling defined 
 import '../css/desktop.css';
 
-
-// logo importing 
+// photos importing 
 import logo from '../photos/igadgetnobg.png';
 import searchicon from '../photos/searchIcon.svg';
 import favorite from '../photos/favorite.png';
 import shoppingcart from '../photos/shoppingcart.png';
 import acountIcon from '../photos/acountIcon.png';
-import { Link } from 'react-router-dom';
 
-// import { Link } from 'react-router-dom';
-
+// context import to use for search 
+import CommonContext from '../contexts/CommonContext';
 
 export default function Navbar() {
+
+  // to navigate "/prods" page
+  const navigate = useNavigate();
+
+  // extracting setCommon from CommonContext 
+  let {setCommon} = useContext(CommonContext);
 
   // for searching 
   const [search, setSearch] = useState("");
@@ -23,7 +29,17 @@ export default function Navbar() {
     setSearch(event.target.value);
   }
   const searchData = async()=>{
-    // fetchnamedprods
+    // api call
+    const url = `http://localhost:5000/storeproducts/fetchnamedprods?prodname=${search}`;
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    });
+    const data = await response.json();
+    setCommon(data);
+    navigate('/prods');
   }
 
   return (

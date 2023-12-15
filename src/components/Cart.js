@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 
 export default function Cart() {
   const product = useSelector((state) => state.cart);
-  console.log("Hello" + product);
   const dispatch = useDispatch();
 
   //function to remove iteam from card

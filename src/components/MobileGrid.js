@@ -7,7 +7,6 @@ import LoadIndicator from './LoadIndicator';
 export default function MobileGrid() {
 
   let {mobile, load} = useContext(MobileContext);
-  console.log(mobile[0] + " " + load)
   mobile = Array.from(mobile);
 
   while(mobile === undefined)

@@ -1,6 +1,10 @@
 
 import './App.css';
+
+// to set routing 
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom';
+
+// importing components
 import RootLayout from './components/RootLayout';
 import Home from './components/Home';
 import ProductPage from './components/ProductPage';
@@ -8,6 +12,7 @@ import Cart from './components/Cart';
 import Favourite from './components/Favourite'
 import UserAccount from './components/UserAccount';
 import AdminDash from './components/AdminDash';
+import Prods from './components/Prods';
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -18,6 +23,7 @@ function App() {
         <Route exact path='/fav' element={<Favourite/>}/>
         <Route exact path='/useracnt' element={<UserAccount/>}/>
         <Route exact path='/myAdmin' element={<AdminDash/>}/>
+        <Route exact path='/prods' element={<Prods/>}/>
     </Route>
     
   ))
