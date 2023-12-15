@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 // css file styling defined 
 import '../css/desktop.css';
 
@@ -15,6 +15,17 @@ import { Link } from 'react-router-dom';
 
 
 export default function Navbar() {
+
+  // for searching 
+  const [search, setSearch] = useState("");
+
+  const updateSearch = (event) => {
+    setSearch(event.target.value);
+  }
+  const searchData = async()=>{
+    // fetchnamedprods
+  }
+
   return (
     <>
     {/* this is navbar which always remian present on all the pages  */}
@@ -27,8 +38,8 @@ export default function Navbar() {
 
         {/* search-bar division  */}
         <div id='searchdiv'>
-          <input type='text' id='searchbar' name='searchbar' placeholder='search gadgets' />
-          <button type='btn'><img src={searchicon} alt=''/></button>
+          <input type='text' id='searchbar' name='searchbar' placeholder='search gadgets' onChange={updateSearch} />
+          <button type='btn' onClick={searchData}><img src={searchicon} alt=''/></button>
         </div>
 
 

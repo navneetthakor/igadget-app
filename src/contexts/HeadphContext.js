@@ -1,3 +1,3 @@
 import { createContext } from "react";
-const CommonContext = createContext();
-export default CommonContext;
+const HeadphContext = createContext();
+export default HeadphContext;
