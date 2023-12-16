@@ -590,6 +590,19 @@ subheader a:hover {
     border: 2px solid gray;
 }
 
+
+/* -------------------------------------------styling for '/prods'---------------------------------
+------------------------------------------------------------------------------------------------ */
+#prodsContainer{
+    width: 80vw;
+    margin-left: 10vw;
+    margin-top: 10vh;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+
+
 /* ------------------------------utility classes------------------------------------- */
 .container {
     height: 80vh;
