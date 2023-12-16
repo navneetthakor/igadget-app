@@ -10,6 +10,13 @@ import Navbar from "./Navbar";
 export default function ProductPage() {
 
   const {prodp, load} = useContext(ProdPageContext);
+  const [mainimg, setMainimg] = useState(prodp.images[0]);
+  let dummyimg;
+
+  // ----------to change main image--------------
+  const setImg = () =>{
+    setMainimg(dummyimg);
+  }
 
   // -------------quantity count------------------ 
   const [ct, setct] = useState(1);
@@ -50,11 +57,11 @@ const handleAddToFav = ()=>{
         {/* images devision */}
         <div id="prodImag" className="flexCol">
         <div id="pimgbig">
-            <img src={`http://localhost:5000/${prodp.images[0]}`.replace(/\\/g, '/')} alt="" />
+            <img src={`http://localhost:5000/${mainimg}`.replace(/\\/g, '/')} alt="" />
           </div>
           <div id="pImgContainer"  className="flexRow">
             {prodp.images.map((image)=>{
-              return <img src={`http://localhost:5000/${image}`.replace(/\\/g, '/')} alt=""/>
+              return <img src={`http://localhost:5000/${image}`.replace(/\\/g, '/')} alt="" onClick={() => {dummyimg = image; setImg();}}/>
             })}
           </div>
           
