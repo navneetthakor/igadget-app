@@ -2,26 +2,24 @@
 import React, { useState } from "react";
 
 // to use store
-import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../store/CartSlice";
+import { useSelector} from "react-redux";
+
 
 export default function Checkout() {
   const product = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
 
-  //function to remove iteam from card
-  const removeToCart = (prod) => {
-    dispatch(remove(prod._id));
-  };
+  // --------------------------  for total--------------------------------
+  const [total,setTotal] = useState(0);
+  const doTotal = () =>{
+      let temp = 0;
+    for(let i=0; i<product.length; i++){
+        temp += product[i].price;
+    } 
+    setTotal(temp);
+  }
 
-  //   for total
-  const [total, setTotal] = useState(0.0);
-
-  // to put iteams in checkoutIteamGrid
+  // ---------------to put iteams in checkoutIteamGrid------------------------
   const placeIteams = product?.map((prod) => {
-    // let temp = total;
-    // temp += prod.price;
-    // setTotal(temp);
     return (
       <div id="checkoutIteam" className="flexRow">
         {/* image division  */}
@@ -47,12 +45,17 @@ export default function Checkout() {
     );
   });
 
+
+//   -----------------------------------------------------------------------------------
+//   -----------------------------Main Function----------------------------------------
+//   ----------------------------------------------------------------------------------
   return (
     <>
-      <div className="flexCenter" id="chekoutOuterContainer">
-        {/* container which has all the parts in it  */}
+      <div className="flexCenter" id="chekoutOuterContainer" onLoad={doTotal}>
+        {/* --------------------------container which has all the parts in it ------------------------ */}
         <div id="checkoutInnerContainer" className="flexRow">
-          {/*-------------- left container (it has only shiping info) */}
+
+          {/*---left container (it has only shiping info)--- */}
           <div id="checkoutShipping" className="checkoutShape flexCol">
             <h1 className="checkoutHeading">Shopping Cart</h1>
 
@@ -82,7 +85,7 @@ export default function Checkout() {
             </div>
           </div>
 
-          {/*------------- right container (it has delivery info and payment method) */}
+          {/*---right container (it has delivery info and payment method) ---*/}
           <div id="checkoutRightCont" className="flexCol">
             {/* delivery */}
             <div id="chekcoutDelivery" className="checkoutShape">
