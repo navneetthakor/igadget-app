@@ -48,7 +48,7 @@ export default function Navbar() {
     {/* <nav> */}
       <header>
         {/* logo division */}
-        <div id="logodiv">
+        <div id="logodiv" onClick={() => navigate('/')}>
           <img src={logo} alt=""/>
         </div>
 
