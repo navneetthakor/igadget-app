@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { remove } from "../store/CartSlice";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
   const product = useSelector((state) => state.cart);
@@ -11,6 +12,9 @@ export default function Cart() {
   const removeToCart = (prod) => {
     dispatch(remove(prod._id));
   };
+
+  // for navigation 
+  const navigate = useNavigate();
 
   // function to display all the iteams that are in the cart
   const cards = product?.map((prodp) => {
@@ -53,7 +57,7 @@ export default function Cart() {
       </div>
 
       {/* to proceed for chekout  */}
-      <button className="PrimButton" style={{marginLeft: "48vw"}}>Chekout</button>
+      <button className="PrimButton" style={{marginLeft: "48vw"}} onClick={() => navigate('/checkout')}>Chekout</button>
     </>
   );
 }

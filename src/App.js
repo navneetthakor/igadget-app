@@ -13,6 +13,7 @@ import Favourite from './components/Favourite'
 import UserAccount from './components/UserAccount';
 import AdminDash from './components/AdminDash';
 import Prods from './components/Prods';
+import Checkout from './components/Checkout';
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -24,6 +25,7 @@ function App() {
         <Route exact path='/useracnt' element={<UserAccount/>}/>
         <Route exact path='/myAdmin' element={<AdminDash/>}/>
         <Route exact path='/prods' element={<Prods/>}/>
+        <Route exact path='/checkout' element={<Checkout/>}/>
     </Route>
     
   ))

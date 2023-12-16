@@ -609,6 +609,62 @@ subheader a:hover {
 }
 
 
+/* --------------------------------------------------------------------------------------------------
+---------------------------------Checkout Page----------------------------------------------------
+----------------------------------------------------------------------------------------------- */
+#chekoutOuterContainer{
+    background-color: lightgray;
+}
+
+#checkoutInnerContainer{
+    height: 90vh;
+    width: 60vw;
+    border-radius: 8px;
+}
+
+/* styling for left part  */
+#checkoutShipping{
+    height: 100%;
+    width: 49%;
+}
+
+#chekoutIteamGrid{
+    width: 90%;
+    height: 20%;
+    margin-inline: auto;
+    border-top: 1px solid blue;
+}
+
+/* styling for right part  */
+#checkoutRightCont{
+    height: 100%;
+    width: 50%;
+    margin-left: 1%;
+
+}
+#chekcoutDelivery{
+    height: 54%;
+    width: 100%;
+    margin-bottom: 2%;
+}
+
+#checkoutPayment{
+    height: 44%;
+    width: 100%;
+}
+
+/* classes used in many checkout components  */
+.checkoutShape{
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    
+}
+
+.checkoutHeading{
+    font-size: 3.5vh;
+    padding: 1vh 2vw;
+}
 
 /* ------------------------------utility classes------------------------------------- */
 .container {
@@ -712,7 +768,7 @@ subheader a:hover {
     color: white;
 }
 
-/* used in admin login and signup */
+/* used in admin login and signup and checkout*/
 .flexCenter{
     /* border: 2px solid red; */
     height: 100vh;
