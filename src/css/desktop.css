@@ -586,6 +586,7 @@ subheader a:hover {
     overflow: hidden;
     justify-content: center;
     align-items: center;
+    background-color: white;
 }
 
 .admlgnContainer > input{
@@ -622,7 +623,7 @@ subheader a:hover {
     border-radius: 8px;
 }
 
-/* styling for left part  */
+/* ------------------------------------------styling for left part  */
 #checkoutShipping{
     height: 100%;
     width: 49%;
@@ -630,12 +631,53 @@ subheader a:hover {
 
 #chekoutIteamGrid{
     width: 90%;
-    height: 20%;
+    height: 60%;
     margin-inline: auto;
-    border-top: 1px solid blue;
+    border-top: 1px solid var(--primeColor1);
+    border-bottom: 1px solid var(--primeColor1);
 }
 
-/* styling for right part  */
+/* styling for iteams in side shipping */
+#checkoutIteam{
+    margin-top: 3%;
+    width: 100%;
+    height: 25%;
+}
+
+#checkoutIteamImg{
+    height: 95%;
+    width: 25%;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid gray;
+}
+#checkoutIteamImg > img{
+    height: 100%;
+    width: 100%;
+}
+
+.checkoutIteamContent{
+    margin-left: 7%;
+    overflow: hidden;
+}
+
+/* subtotal and total in shipping  */
+#chekoutShippingTotal{
+    height: 10%;
+    width: 90%;
+    border-bottom: 1px solid var(--primeColor1);
+    margin-left: 5%;
+    padding: 0% 5%;
+}
+
+#chekoutShippingTotal > div{
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+/* -------------------------------------------styling for right part  */
 #checkoutRightCont{
     height: 100%;
     width: 50%;
@@ -663,7 +705,11 @@ subheader a:hover {
 
 .checkoutHeading{
     font-size: 3.5vh;
-    padding: 1vh 2vw;
+    padding: 2vh 2vw;
+}
+
+.checkoutSecHeading{
+    font-size: 2.5vh;
 }
 
 /* ------------------------------utility classes------------------------------------- */
@@ -740,9 +786,6 @@ subheader a:hover {
     font-weight: 900;
     text-decoration: underline;
     font-size: 3.5vh;
-    /* width: 100%; */
-    /* margin: 2vh 5vw; */
-    /* border: 2px solid red; */
 
 }
 
@@ -771,6 +814,7 @@ subheader a:hover {
 /* used in admin login and signup and checkout*/
 .flexCenter{
     /* border: 2px solid red; */
+    background-color: lightgray;
     height: 100vh;
     width: 100%;
     display: flex;
