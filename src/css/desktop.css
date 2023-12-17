@@ -14,12 +14,6 @@ img:active{
     border: 2px solid transparent;
 }
 
-input{
-    margin-top: 0.5vh;
-    padding: 0.7vh;
-    border-radius: 5px;
-    border: 2px solid lightgray;
-}
 
 /* css variables */
 :root {
@@ -622,6 +616,12 @@ subheader a:hover {
 ----------------------------------------------------------------------------------------------- */
 #chekoutOuterContainer{
     background-color: lightgray;
+}
+#chekoutOuterContainer input{
+    margin-top: 0.5vh;
+    padding: 0.7vh;
+    border-radius: 5px;
+    border: 2px solid lightgray;
 }
 
 #checkoutInnerContainer{
