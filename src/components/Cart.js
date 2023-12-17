@@ -39,8 +39,10 @@ export default function Cart() {
   return (
     <>
       <Navbar/>
-      <h1 className="PrimHead"> Your Cart</h1>
+      <div id="cartPage" className=" checkoutShape">
+
       <div className="CartMain flexCol">
+      <h1 className="checkoutHeading"> Your Cart</h1>
         {/* to add headings  */}
         <div className="CartHead flexRow" style={{fontWeight: "bold"}}>
           <div id="ptitle" style={{ width: "50%", textAlign: "center" }}>
@@ -58,6 +60,7 @@ export default function Cart() {
 
       {/* to proceed for chekout  */}
       <button className="PrimButton" style={{marginLeft: "48vw"}} onClick={() => navigate('/checkout')}>Chekout</button>
+      </div>
     </>
   );
 }
