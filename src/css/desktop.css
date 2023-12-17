@@ -7,7 +7,7 @@
     /* border: 2px solid red; */
 }
 
-img:hover{
+img:hover, button:hover{
     cursor: pointer;
 }
 img:active{
@@ -628,7 +628,13 @@ subheader a:hover {
     margin-top: 15%;
 }
 
-#user2ImgCont > img{
+#user2ImgCont  img{
+    height: 90%;
+    width: 90%;
+    border-radius: 300px;
+}
+#user2ImgCont  div{
+    background-color: white;
     height: 90%;
     width: 90%;
     border-radius: 300px;

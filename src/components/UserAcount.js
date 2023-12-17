@@ -11,7 +11,9 @@ export default function UserAcount() {
     <div id='user2OuterCont' className='flexCenter'>
         <div id='user2Container' className='flexCol'>
             <div id='user2ImgCont' className=' flexCenter'>
-                <img src={myprofile} alt=''/>
+                <div className='flexCenter'>
+                    <img src={myprofile} alt=''/>
+                </div>
             </div>
 
             <h2 className='checkoutHeading' style={{marginInline: "auto"}}>Navneet Kumar</h2>
