@@ -171,6 +171,10 @@ export default function Checkout() {
                     <input id="r3" type="radio" name="payment"/>
                     <label htmlFor="r3">UPI</label>
                   </div>
+                  <div className="flexRow">
+                    <input id="r4" type="radio" name="payment"/>
+                    <label htmlFor="r4">Cash On Delivery</label>
+                  </div>
 
                 </div>
 

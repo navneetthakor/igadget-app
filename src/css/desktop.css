@@ -475,42 +475,68 @@ subheader a:hover {
 
 /* -------------------------------------------------------------------------------------- */
 /* ---------------------------- Add-to-cart --------------------------------------------- */
+#cartPage{
+    /* margin-top: 0.3vh; */
+    width: 100%;
+    height: 84vh;
+    background-color: whitesmoke;
+
+}
 .CartMain{
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-    /* border: 2px solid grey; */
-    font-size: 2.7vh;
+    width: 45%;
+    background-color: white;
+    border-radius: 8px;
+    margin-inline: auto;
+    margin-top: 5vh;
+    border: 2px solid lightgray;
 }
 
+
+.CartHead{
+    width: 90%;
+    border-top: 1px solid var(--primeColor1);
+    margin-inline:auto;
+    padding-top: 2vh;
+}
+
+/* for checkout button  */
+.CartMain > button{
+    margin: 2vh;
+    margin-left: 20vw;
+}
 
 /* --------------------related to Addtocart, addtoFavourit----------------------------- */
 .FCart{
-    height: 15vh;
+    height: 12vh;
     width: 100%;
     overflow: hidden;
     margin-top: 2vh;
-    /* border: 2px solid red; */
+}
+.FCart button{
+    margin-top: 2vh;
+    margin-left: 1vw;
 }
 
-.FCartExt{
-    margin-top: 5vh;
-}
-
-.FCartProd > img{
-    /* border: 2px solid red; */
+.cartIteamImg{
     height: 100%;
-    width: 20%;
-    margin-left: 2%;
+    width: 15%;
     border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid lightgray;
 }
-.FCartProd > div{
-    margin-left: 3vw;
-    margin-top: 5vh;
-    /* margin: auto; */
+.cartIteamImg > img{
+    height: 100%;
+    width: 100%;
 }
 
+.cartIteamContent{
+    width: 85%;
+}
+
+.cartIteamTitle{
+    margin-left: 2vw;
+    width: 35%;
+}
 
 /* -------------------------------------------------------------------------------------- */
 /* --------------------------------User Account------------------------------------------ */
@@ -532,7 +558,6 @@ subheader a:hover {
 /* user profile heading  */
 #userHead{
     height: 25%;
-    /* border: 1px solid red; */
     display: flex;
     flex-direction: row;
     background-image: linear-gradient(to bottom right, darkblue, #cead61);
@@ -656,7 +681,7 @@ subheader a:hover {
     width: 25%;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid gray;
+    border: 2px solid lightgray;
 }
 #checkoutIteamImg > img{
     height: 100%;
@@ -720,7 +745,7 @@ subheader a:hover {
 }
 #checkoutPaymentInfo > button{
     margin-left: 35%;
-    margin-top: 2vh;
+    margin-top: 1vh;
 }
 
 #checkoutRadioCont{
@@ -740,7 +765,7 @@ subheader a:hover {
     background-color: white;
     border-radius: 8px;
     overflow: hidden;
-    
+    border: 2px solid lightgray;
 }
 
 .checkoutHeading{
@@ -864,9 +889,29 @@ subheader a:hover {
     color: white;
 }
 
+/* secondary button (mostly for unwanted actions like: remove) */
+.SecButton{
+    height: 5vh;
+    width: 7vw;
+    font-size: 2.3vh;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: maroon;
+    color: white;
+    font-weight: 700;
+}
+
+.SecButton:hover{
+    /* background-color: rgba(137, 18, 18, 0.589); */
+    background-color: red;
+}
+
+.SecButton:active{
+    background-color: maroon;
+}
+
 /* used in admin login and signup and checkout*/
 .flexCenter{
-    /* border: 2px solid red; */
     background-color: lightgray;
     height: 100vh;
     width: 100%;
