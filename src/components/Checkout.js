@@ -13,7 +13,7 @@ export default function Checkout() {
   const doTotal = () =>{
       let temp = 0;
     for(let i=0; i<product.length; i++){
-        temp += product[i].price;
+        temp += product[i].price * product[i].ct;
     } 
     setTotal(temp);
   }
@@ -90,12 +90,96 @@ export default function Checkout() {
             {/* delivery */}
             <div id="chekcoutDelivery" className="checkoutShape">
               <h1 className="checkoutHeading">Delivery Info</h1>
+
+              {/* for address info */}
+              <div id="checkoutDeliveryInput">
+                {/* for first and last name  */}
+                <div className="checkout2in1">
+                  <div className="flexCol">
+                    <label htmlFor="fname">First Name</label>
+                    <input type="txt" id="fname" name="fname" placeholder="Navneetkumar"/>
+                  </div>
+                  <div className="flexCol">
+                    <label htmlFor="lname">Last Name</label>
+                    <input type="txt" id="lname" name="lname" placeholder="Thakor"/>
+                  </div>
+                </div>
+
+                {/* for email and mobile */}
+                <div className="checkout2in1">
+                  <div className="flexCol">
+                    <label htmlFor="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="tnavneet86@gmail.com"/>
+                  </div>
+                  <div className="flexCol">
+                    <label htmlFor="mobilen">Mobile No.</label>
+                    <input type="number" id="mobilen" name="mobilen" placeholder="9966996699"/>
+                  </div>
+                </div>
+
+                {/* for address */}
+                <div className="flexCol checkout1in1">
+                  <label htmlFor="address">Address</label>
+                  <input type="txt" id="address" name="address" placeholder="1509, ramdevpura near khankuva, bhalej road"/>
+                </div>
+
+                {/* for city and state */}
+                <div className="checkout2in1">
+                  <div className="flexCol">
+                    <label htmlFor="city">City</label>
+                    <input type="txt" id="city" name="city" placeholder="Anand"/>
+                  </div>
+                  <div className="flexCol">
+                    <label htmlFor="state">State</label>
+                    <input type="txt" id="state" name="state" placeholder="Gujarat"/>
+                  </div>
+                </div>
+
+                {/* for city and state */}
+                <div className="checkout2in1">
+                  <div className="flexCol">
+                    <label htmlFor="country">Country</label>
+                    <input type="txt" id="country" name="country" placeholder="India"/>
+                  </div>
+                  <div className="flexCol">
+                    <label htmlFor="pincode">Pincode</label>
+                    <input type="txt" id="pincode" name="pincode" placeholder="388205"/>
+                  </div>
+                </div>
+
+              </div>
             </div>
 
-            {/* payment */}
+            {/*------------------------------------------- payment----------------------------- */}
             <div id="checkoutPayment" className="checkoutShape">
               <h1 className="checkoutHeading">Payment</h1>
+
+              {/* patment related content  */}
+              <div id="checkoutPaymentInfo">
+                <p htmlFor="selectPayment">Payment Method</p>
+                
+                <div id="checkoutRadioCont" className="flexCol">
+                  <div className="flexRow">
+                    <input id="r1" type="radio" name="payment"/>
+                    <label htmlFor="r1">Credit/Debit Card</label>
+                  </div>
+                  <div className="flexRow">
+                    <input id="r2" type="radio" name="payment"/>
+                    <label htmlFor="r2">Net Banking</label>
+                  </div>
+                  <div className="flexRow">
+                    <input id="r3" type="radio" name="payment"/>
+                    <label htmlFor="r3">UPI</label>
+                  </div>
+
+                </div>
+
+                <button className="PrimButton">Proceed</button>
+              </div>
+
             </div>
+
+            {/* payment over */}
           </div>
         </div>
       </div>
