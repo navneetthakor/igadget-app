@@ -39,7 +39,7 @@ export default function Cart() {
             <div className="FCartExt">Qnt: {prodp.ct}</div>
           </div>
 
-          <button className="PrimButton" onClick={() => removeToCart(prodp)}>
+          <button className="SecButton" onClick={() => removeToCart(prodp)}>
             Remove
           </button>
         </div>
@@ -53,10 +53,8 @@ export default function Cart() {
         <div className="CartMain flexCol">
           <h1 className="checkoutHeading"> Your Cart</h1>
           {/* to add headings  */}
-          <div className="CartHead ">
-            <div className="flexCol">
+          <div className="CartHead flexCol">
             {cards}
-            </div>
           </div>
 
           {/* to proceed for chekout  */}

@@ -476,6 +476,7 @@ subheader a:hover {
 /* -------------------------------------------------------------------------------------- */
 /* ---------------------------- Add-to-cart --------------------------------------------- */
 #cartPage{
+    /* margin-top: 0.3vh; */
     width: 100%;
     height: 84vh;
     background-color: whitesmoke;
@@ -496,7 +497,6 @@ subheader a:hover {
     border-top: 1px solid var(--primeColor1);
     margin-inline:auto;
     padding-top: 2vh;
-    overflow: hidden;
 }
 
 /* for checkout button  */
@@ -531,12 +531,10 @@ subheader a:hover {
 
 .cartIteamContent{
     width: 85%;
-    /* border: 2px solid black; */
 }
 
 .cartIteamTitle{
     margin-left: 2vw;
-    /* border: 2px solid red; */
     width: 35%;
 }
 
@@ -683,7 +681,7 @@ subheader a:hover {
     width: 25%;
     border-radius: 8px;
     overflow: hidden;
-    border: 1px solid gray;
+    border: 2px solid lightgray;
 }
 #checkoutIteamImg > img{
     height: 100%;
@@ -889,6 +887,27 @@ subheader a:hover {
 .PrimButton:active{
     background-color: orangered;
     color: white;
+}
+
+/* secondary button (mostly for unwanted actions like: remove) */
+.SecButton{
+    height: 5vh;
+    width: 7vw;
+    font-size: 2.3vh;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+    background-color: maroon;
+    color: white;
+    font-weight: 700;
+}
+
+.SecButton:hover{
+    /* background-color: rgba(137, 18, 18, 0.589); */
+    background-color: red;
+}
+
+.SecButton:active{
+    background-color: maroon;
 }
 
 /* used in admin login and signup and checkout*/
