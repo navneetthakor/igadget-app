@@ -475,21 +475,21 @@ subheader a:hover {
 
 /* -------------------------------------------------------------------------------------- */
 /* ---------------------------- Add-to-cart --------------------------------------------- */
-.CartMain{
-    width: 80%;
-    height: 80%;
-    font-size: 2.7vh;
-    background-color: white;
-    border: 2px solid red;
-    margin-inline: auto;
-    margin-top: 5vh;
-}
-
 #cartPage{
     width: 100%;
     height: 84vh;
     background-color: whitesmoke;
+
 }
+.CartMain{
+    width: 45%;
+    background-color: white;
+    border-radius: 8px;
+    margin-inline: auto;
+    margin-top: 5vh;
+    border: 2px solid lightgray;
+}
+
 
 .CartHead{
     width: 90%;
@@ -499,29 +499,46 @@ subheader a:hover {
     overflow: hidden;
 }
 
+/* for checkout button  */
+.CartMain > button{
+    margin: 2vh;
+    margin-left: 20vw;
+}
+
 /* --------------------related to Addtocart, addtoFavourit----------------------------- */
 .FCart{
-    height: 15vh;
+    height: 12vh;
     width: 100%;
     overflow: hidden;
     margin-top: 2vh;
 }
-
-.FCartExt{
-    margin-top: 5vh;
+.FCart button{
+    margin-top: 2vh;
+    margin-left: 1vw;
 }
 
-.FCartProd > img{
+.cartIteamImg{
     height: 100%;
-    width: 20%;
-    margin-left: 2%;
+    width: 15%;
     border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid lightgray;
 }
-.FCartProd > div{
-    margin-left: 3vw;
-    margin-top: 5vh;
+.cartIteamImg > img{
+    height: 100%;
+    width: 100%;
 }
 
+.cartIteamContent{
+    width: 85%;
+    /* border: 2px solid black; */
+}
+
+.cartIteamTitle{
+    margin-left: 2vw;
+    /* border: 2px solid red; */
+    width: 35%;
+}
 
 /* -------------------------------------------------------------------------------------- */
 /* --------------------------------User Account------------------------------------------ */
