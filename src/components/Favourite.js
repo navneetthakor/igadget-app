@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fremove } from "../store/FavoriteSlice";
+import { add } from "../store/CartSlice";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 
@@ -18,7 +19,11 @@ export default function Cart() {
 
 //------------------function add to cart-------------------
 const handleAddToCart = () =>{
-    
+    for(let i=0; i<product.length; i++){
+      dispatch(add(product[i]));
+    }
+
+    navigate('/cart')
 } 
 
   // function to display all the iteams that are in the cart
@@ -66,7 +71,7 @@ const handleAddToCart = () =>{
 
           <button
             className="PrimButton"
-            onClick={() => navigate("/cart")}
+            onClick={handleAddToCart}
             >
             Chekout
           </button>

@@ -7,7 +7,7 @@
     /* border: 2px solid red; */
 }
 
-img:hover{
+img:hover, button:hover{
     cursor: pointer;
 }
 img:active{
@@ -476,9 +476,9 @@ subheader a:hover {
 /* -------------------------------------------------------------------------------------- */
 /* ---------------------------- Add-to-cart --------------------------------------------- */
 #cartPage{
-    /* margin-top: 0.3vh; */
+    margin-top: 0.4vh;
     width: 100%;
-    height: 84vh;
+    height: 83.6vh;
     background-color: whitesmoke;
 
 }
@@ -540,7 +540,7 @@ subheader a:hover {
 
 /* -------------------------------------------------------------------------------------- */
 /* --------------------------------User Account------------------------------------------ */
-#userContainer{
+/* #userContainer{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -553,10 +553,10 @@ subheader a:hover {
     border: 2px solid gray;
     border-radius: 8px;
     overflow: hidden;
-}
+} */
 
 /* user profile heading  */
-#userHead{
+/* #userHead{
     height: 25%;
     display: flex;
     flex-direction: row;
@@ -577,10 +577,10 @@ subheader a:hover {
     font-weight: bold;
     margin-left: 7%;
     color: white;
-}
+} */
 
 /* user profile body  */
-#userBody{
+/* #userBody{
     background-color: whitesmoke;
     height: 75%;
 }
@@ -599,6 +599,50 @@ subheader a:hover {
 #userBody > button:active{
     background-color: orangered;
     color: white;
+} */
+
+
+/* -----------------new user profile---------------------- */
+#user2OuterCont{
+    background-color: whitesmoke;
+    height: 83vh;
+    margin-top: 1vh;
+}
+
+#user2Container{
+    height: 80%;
+    width: 30%;
+    margin-inline: auto;
+    background-color: white;
+    border: 2px solid gray;
+    border-radius: 8px;
+    margin-top: 2vh;
+}
+
+#user2ImgCont{
+    background: linear-gradient(rgb(28, 200, 212),rgb(14, 14, 219));
+    height: 25vh;
+    width: 25vh;
+    border-radius: 300px;
+    margin-inline: auto;
+    margin-top: 15%;
+}
+
+#user2ImgCont  img{
+    height: 90%;
+    width: 90%;
+    border-radius: 300px;
+}
+#user2ImgCont  div{
+    background-color: white;
+    height: 90%;
+    width: 90%;
+    border-radius: 300px;
+}
+
+.user2Btn{
+    width: 50%;
+    margin-top: 3vh;
 }
 
 
@@ -659,6 +703,7 @@ subheader a:hover {
 #checkoutShipping{
     height: 100%;
     width: 49%;
+    border: 0.5px solid gray;
 }
 
 #chekoutIteamGrid{
@@ -690,7 +735,7 @@ subheader a:hover {
 
 .checkoutIteamContent{
     margin-left: 7%;
-    overflow: hidden;
+    width: 30%;
 }
 
 /* subtotal and total in shipping  */
@@ -722,6 +767,7 @@ subheader a:hover {
     height: 59%;
     width: 100%;
     margin-bottom: 2%;
+    border: 0.5px solid gray;
 }
 
 #checkoutDeliveryInput{
@@ -735,6 +781,7 @@ subheader a:hover {
 #checkoutPayment{
     height: 39%;
     width: 100%;
+    border: 0.5px solid gray;
 }
 
 #checkoutPaymentInfo{
@@ -761,6 +808,7 @@ subheader a:hover {
 }
 
 /* classes used in many checkout components  */
+/* used in chekout,cart,fav,userAcount pages  */
 .checkoutShape{
     background-color: white;
     border-radius: 8px;

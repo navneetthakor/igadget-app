@@ -10,10 +10,10 @@ import Home from './components/Home';
 import ProductPage from './components/ProductPage';
 import Cart from './components/Cart';
 import Favourite from './components/Favourite'
-import UserAccount from './components/UserAccount';
 import AdminDash from './components/AdminDash';
 import Prods from './components/Prods';
 import Checkout from './components/Checkout';
+import UserAcount from './components/UserAcount';
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -22,7 +22,7 @@ function App() {
         <Route exact path='/prodpage' element={<ProductPage/>}/>
         <Route exact path='/cart' element={<Cart/>}/>
         <Route exact path='/fav' element={<Favourite/>}/>
-        <Route exact path='/useracnt' element={<UserAccount/>}/>
+        <Route exact path='/useracnt' element={<UserAcount/>}/>
         <Route exact path='/myAdmin' element={<AdminDash/>}/>
         <Route exact path='/prods' element={<Prods/>}/>
         <Route exact path='/checkout' element={<Checkout/>}/>
