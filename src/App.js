@@ -10,7 +10,6 @@ import Home from './components/Home';
 import ProductPage from './components/ProductPage';
 import Cart from './components/Cart';
 import Favourite from './components/Favourite'
-import UserAccount from './components/UserAccount';
 import AdminDash from './components/AdminDash';
 import Prods from './components/Prods';
 import Checkout from './components/Checkout';
