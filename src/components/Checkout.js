@@ -178,7 +178,7 @@ export default function Checkout() {
 
                 </div>
 
-                <button className="PrimButton">Proceed</button>
+                <button className="primButton">Proceed</button>
               </div>
 
             </div>

@@ -36,7 +36,7 @@ export default function LaptopGrid() {
   return (
     <>
     { load ? (<div className='container topmargin flexCol'>
-            <div className='GH1Image' onClick={searchData}>
+            <div className='gH1Image' onClick={searchData}>
                 <img src={laptopBanner} alt='' />
             </div>
 

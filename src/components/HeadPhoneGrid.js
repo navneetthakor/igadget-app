@@ -41,7 +41,7 @@ export default function HeadPhoneGrid() {
         <SideGrid iteam={headph} />
 
         {/* image division  */}
-        <div className="GV1Image marginLeft" onClick={searchData}>
+        <div className="gV1Image marginLeft" onClick={searchData}>
           <img src={headPhone} alt="" />
         </div>
       </div>):(

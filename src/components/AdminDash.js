@@ -16,7 +16,7 @@ export default function AdminDash() {
     {next ? 
     <>
     <h1>Welcome to dashboard</h1>
-    <button className='PrimButton' onClick={handleLogout}>logout</button>
+    <button className='primButton' onClick={handleLogout}>logout</button>
     </>
     : <AdminLogin iteam={{next,setNext}}/>
     }

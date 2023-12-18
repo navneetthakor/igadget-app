@@ -29,7 +29,7 @@ const handleAddToCart = () =>{
   // function to display all the iteams that are in the cart
   const favs = product?.map((prodp) => {
     return (
-      <div className="FCart flexRow">
+      <div className="fCart flexRow">
         <div className="cartIteamImg">
           <img
             src={`http://localhost:5000/${prodp.images[0]}`.replace(/\\/g, "/")}
@@ -45,11 +45,11 @@ const handleAddToCart = () =>{
           </div>
 
           <div className="cartIteamTitle flexCol">
-            <h2 className="FCartExt checkoutSecHeading">Price: {prodp.price * prodp.ct}</h2>
-            <div className="FCartExt">Qnt: {prodp.ct}</div>
+            <h2 className="fCartExt checkoutSecHeading">Price: {prodp.price * prodp.ct}</h2>
+            <div className="fCartExt">Qnt: {prodp.ct}</div>
           </div>
 
-          <button className="SecButton" onClick={() => removeToCart(prodp)}>
+          <button className="secButton" onClick={() => removeToCart(prodp)}>
             Remove
           </button>
         </div>
@@ -60,17 +60,17 @@ const handleAddToCart = () =>{
     <>
       <Navbar/>
       <div id="cartPage" className=" checkoutShape">
-        <div className="CartMain flexCol">
+        <div className="cartMain flexCol">
           <h1 className="checkoutHeading"> Your Favorites</h1>
           {/* to add headings  */}
-          <div className="CartHead flexCol">
+          <div className="cartHead flexCol">
             {favs}
           </div>
 
           {/* to proceed for chekout  */}
 
           <button
-            className="PrimButton"
+            className="primButton"
             onClick={handleAddToCart}
             >
             Chekout

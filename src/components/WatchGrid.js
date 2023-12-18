@@ -41,7 +41,7 @@ export default function WatchGrid() {
       load ? (
       <div className='container'>
       {/* upper 2 images */}
-      <div id='WGUpperImg' onClick={searchData}>
+      <div id='wGUpperImg' onClick={searchData}>
           <img src={maleWatch}  className='link' alt=''/>
           <img src={femaleWatch} className='link' id='femaleWatch' alt=''/>
       </div>

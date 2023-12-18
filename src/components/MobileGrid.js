@@ -38,7 +38,7 @@ export default function MobileGrid() {
     <>
     {load ? (<div className='container topmargin flexRow'>
         {/* banner division  */}
-        <div className='GV1Image marginRight' onClick={searchData}>
+        <div className='gV1Image marginRight' onClick={searchData}>
             <img src={mobilePhone} alt='' />
         </div>
 

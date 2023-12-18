@@ -46,7 +46,7 @@ export default function Navbar() {
     <>
     {/* this is navbar which always remian present on all the pages  */}
     {/* <nav> */}
-      <header>
+      <header className="flexRow">
         {/* logo division */}
         <div id="logodiv" onClick={() => navigate('/')}>
           <img src={logo} alt=""/>

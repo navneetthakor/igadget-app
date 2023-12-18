@@ -59,12 +59,12 @@ export default function AdminLogin(props) {
 
 
     return (
-        <div className='flexCenter'>
+        <div className='flexCenter' style={{background: "whitesmoke"}}>
             <div className='admlgnContainer flexCol'>
-                <p className='PrimHead'>Welcome Admin</p>
+                <p className='primHead'>Welcome Admin</p>
                 <input type='txt' name='email' onChange={emailChange} placeholder='email' />
                 <input type='password' name='password' onChange={passwdChange} placeholder='password' />
-                <button type='submit' onClick={findAdmin} className='PrimButton'> Submit </button>
+                <button type='submit' onClick={findAdmin} className='primButton' style={{marginTop:"3vh"}}> Submit </button>
             </div>
 
         </div>

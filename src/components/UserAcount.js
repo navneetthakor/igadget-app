@@ -19,12 +19,12 @@ export default function UserAcount() {
             <h2 className='checkoutHeading' style={{marginInline: "auto"}}>Navneet Kumar</h2>
 
             <div className='user2Btn checkout2in1'>
-                <button className='PrimButton'>Purchases</button>
-                <button className='PrimButton'>Orders</button>
+                <button className='primButton'>Purchases</button>
+                <button className='primButton'>Orders</button>
             </div>
             <div className='user2Btn checkout2in1'>
-                <button className='PrimButton'>Edit</button>
-                <button className='PrimButton'>Logout</button>
+                <button className='primButton'>Edit</button>
+                <button className='primButton'>Logout</button>
             </div>
         </div>
     </div>
