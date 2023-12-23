@@ -19,7 +19,7 @@ export default function MobileGrid() {
 
   const searchData = async()=>{
     // api call
-    const url = `${process.env.MY_IP}/storeproducts/fetchnamedprods?prodname=mobile`;
+    const url = `${process.env.REACT_APP_MY_IP}/storeproducts/fetchnamedprods?prodname=mobile`;
     const response = await fetch(url, {
       method: "POST",
       headers: {

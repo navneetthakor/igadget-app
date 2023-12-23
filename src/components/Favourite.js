@@ -32,7 +32,7 @@ const handleAddToCart = () =>{
       <div className="fCart flexRow">
         <div className="cartIteamImg">
           <img
-            src={`${process.env.MY_IP}/${prodp.images[0]}`.replace(/\\/g, "/")}
+            src={`${process.env.REACT_APP_MY_IP}/${prodp.images[0]}`.replace(/\\/g, "/")}
             alt=""
           />
         </div>
