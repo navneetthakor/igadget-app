@@ -25,7 +25,7 @@ export default function Checkout() {
         {/* image division  */}
         <div id="checkoutIteamImg">
           <img
-            src={`http://localhost:5000/${prod.images[0]}`.replace(/\\/g, "/")}
+            src={`${process.env.MY_IP}/${prod.images[0]}`.replace(/\\/g, "/")}
             alt=""
           />
         </div>
