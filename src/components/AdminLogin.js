@@ -17,7 +17,7 @@ export default function AdminLogin(props) {
     const findAdmin = async (formData) => {
         // api call
         const url =
-            `${process.env.MY_IP}/storeadmin/login`;
+            `${process.env.REACT_APP_MY_IP}/storeadmin/login`;
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -39,7 +39,7 @@ export default function AdminLogin(props) {
 
     const autoLogin = async () => {
         const url =
-        `${process.env.MY_IP}/storeadmin/getadmin`;
+        `${process.env.REACT_APP_MY_IP}/storeadmin/getadmin`;
         const response = await fetch(url, {
             method: "POST",
             headers: {

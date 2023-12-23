@@ -16,7 +16,7 @@ export default function Iteam(props) {
     <>
     <div id='iteamCard' className='link' onClick={handleClic}>
       <div id='iteamImage'>
-        <img src={`${process.env.MY_IP}/${iteam.images[0]}`.replace(/\\/g, '/')} alt=''/>
+        <img src={`${process.env.REACT_APP_MY_IP}/${iteam.images[0]}`.replace(/\\/g, '/')} alt=''/>
       </div>
       <div id='iteamDetails'>
         <h3>{iteam.title}</h3>

@@ -19,7 +19,7 @@ export default function HeadPhoneGrid() {
 
   const searchData = async()=>{
     // api call
-    const url = `${process.env.MY_IP}/storeproducts/fetchnamedprods?prodname=headph`;
+    const url = `${process.env.REACT_APP_MY_IP}/storeproducts/fetchnamedprods?prodname=headph`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
