@@ -57,11 +57,11 @@ const handleAddToFav = ()=>{
         {/* images devision */}
         <div id="prodImag" className="flexCol">
         <div id="pimgbig">
-            <img src={`http://localhost:5000/${mainimg}`.replace(/\\/g, '/')} alt="" />
+            <img src={`${process.env.MY_IP}/${mainimg}`.replace(/\\/g, '/')} alt="" />
           </div>
           <div id="pImgContainer"  className="flexRow">
             {prodp.images.map((image)=>{
-              return <img src={`http://localhost:5000/${image}`.replace(/\\/g, '/')} alt="" onClick={() => {dummyimg = image; setImg();}}/>
+              return <img src={`${process.env.MY_IP}/${image}`.replace(/\\/g, '/')} alt="" onClick={() => {dummyimg = image; setImg();}}/>
             })}
           </div>
           

@@ -20,7 +20,7 @@ export default function WatchGrid() {
   
     const searchData = async()=>{
       // api call
-      const url = `http://localhost:5000/storeproducts/fetchnamedprods?prodname=watch`;
+      const url = `${process.env.MY_IP}/storeproducts/fetchnamedprods?prodname=watch`;
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -41,7 +41,7 @@ export default function WatchGrid() {
       load ? (
       <div className='container'>
       {/* upper 2 images */}
-      <div id='WGUpperImg' onClick={searchData}>
+      <div id='wGUpperImg' onClick={searchData}>
           <img src={maleWatch}  className='link' alt=''/>
           <img src={femaleWatch} className='link' id='femaleWatch' alt=''/>
       </div>

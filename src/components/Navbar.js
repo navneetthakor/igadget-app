@@ -30,7 +30,7 @@ export default function Navbar() {
   }
   const searchData = async()=>{
     // api call
-    const url = `http://localhost:5000/storeproducts/fetchnamedprods?prodname=${search}`;
+    const url = `${process.env.MY_IP}/storeproducts/fetchnamedprods?prodname=${search}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -46,7 +46,7 @@ export default function Navbar() {
     <>
     {/* this is navbar which always remian present on all the pages  */}
     {/* <nav> */}
-      <header>
+      <header className="flexRow">
         {/* logo division */}
         <div id="logodiv" onClick={() => navigate('/')}>
           <img src={logo} alt=""/>

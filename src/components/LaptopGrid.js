@@ -18,7 +18,7 @@ export default function LaptopGrid() {
 
   const searchData = async()=>{
     // api call
-    const url = `http://localhost:5000/storeproducts/fetchnamedprods?prodname=laptop`;
+    const url = `${process.env.MY_IP}/storeproducts/fetchnamedprods?prodname=laptop`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -36,7 +36,7 @@ export default function LaptopGrid() {
   return (
     <>
     { load ? (<div className='container topmargin flexCol'>
-            <div className='GH1Image' onClick={searchData}>
+            <div className='gH1Image' onClick={searchData}>
                 <img src={laptopBanner} alt='' />
             </div>
 

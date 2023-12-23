@@ -30,8 +30,6 @@ header {
     height: 11vh;
     width: 100vw;
     background-color: var(--primeColor1);
-    display: flex;
-    flex-direction: row;
     position: sticky;
     top: 0;
     left: 0;
@@ -41,7 +39,6 @@ header {
 #logodiv {
     height: 100%;
     width: 20%;
-    /* border: 2px solid white; */
     margin-left: 8vw;
     overflow: hidden;
 }
@@ -175,7 +172,7 @@ subheader a:hover {
 }
 
 /* --------------------------Watch Grid------------------------------------------------ */
-#WGUpperImg {
+#wGUpperImg {
     height: 50%;
     width: 100%;
     display: flex;
@@ -185,7 +182,7 @@ subheader a:hover {
 }
 
 /* upper images */
-#WGUpperImg>img {
+#wGUpperImg>img {
     height: 90%;
     width: 48%;
     border-radius: 8px;
@@ -208,7 +205,7 @@ subheader a:hover {
 }
 
 /* -----------------------------iteamcard styling------------------------------------ */
-#IteamCard {
+#iteamCard {
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -217,7 +214,7 @@ subheader a:hover {
     background-color: whitesmoke;
 }
 
-#IteamCard:hover {
+#iteamCard:hover {
     background-color: white;
     box-shadow: 1px 1px 20px lightgray;
     border-radius: 5px;
@@ -482,7 +479,7 @@ subheader a:hover {
     background-color: whitesmoke;
 
 }
-.CartMain{
+.cartMain{
     width: 45%;
     background-color: white;
     border-radius: 8px;
@@ -492,7 +489,7 @@ subheader a:hover {
 }
 
 
-.CartHead{
+.cartHead{
     width: 90%;
     border-top: 1px solid var(--primeColor1);
     margin-inline:auto;
@@ -500,19 +497,19 @@ subheader a:hover {
 }
 
 /* for checkout button  */
-.CartMain > button{
+.cartMain > button{
     margin: 2vh;
     margin-left: 20vw;
 }
 
 /* --------------------related to Addtocart, addtoFavourit----------------------------- */
-.FCart{
+.fCart{
     height: 12vh;
     width: 100%;
     overflow: hidden;
     margin-top: 2vh;
 }
-.FCart button{
+.fCart button{
     margin-top: 2vh;
     margin-left: 1vw;
 }
@@ -882,32 +879,32 @@ subheader a:hover {
 }
 
 /* virtical single image in grid  */
-.GV1Image{
+.gV1Image{
     height: 100%;
     width: 35%;
     border-radius: 8px;
     overflow: hidden;
 }
-.GV1Image img{
+.gV1Image img{
     height: 100%;
     width: 100%;
 }
 
 /* horizontal single image in grid  */
-.GH1Image{
+.gH1Image{
     height: 50%;
     width: 100%;
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: 5%;
 }
-.GH1Image img{
+.gH1Image img{
     height: 100%;
     width: 100%;
 }
 
 /* primary heading styling  */
-.PrimHead{
+.primHead{
     font-weight: 900;
     text-decoration: underline;
     font-size: 3.5vh;
@@ -915,7 +912,7 @@ subheader a:hover {
 }
 
 /* primary button  */
-.PrimButton{
+.primButton{
     height: 5vh;
     width: 7vw;
     font-size: 2.3vh;
@@ -926,19 +923,19 @@ subheader a:hover {
     font-weight: 700;
 }
 
-.PrimButton:hover{
+.primButton:hover{
     background-color: var(--primeColor1);
     /* color: black; */
     border: 5px solid transparent;
 }
 
-.PrimButton:active{
+.primButton:active{
     background-color: orangered;
     color: white;
 }
 
 /* secondary button (mostly for unwanted actions like: remove) */
-.SecButton{
+.secButton{
     height: 5vh;
     width: 7vw;
     font-size: 2.3vh;
@@ -949,12 +946,12 @@ subheader a:hover {
     font-weight: 700;
 }
 
-.SecButton:hover{
+.secButton:hover{
     /* background-color: rgba(137, 18, 18, 0.589); */
     background-color: red;
 }
 
-.SecButton:active{
+.secButton:active{
     background-color: maroon;
 }
 

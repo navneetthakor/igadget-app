@@ -17,7 +17,7 @@ export default function AdminLogin(props) {
     const findAdmin = async (formData) => {
         // api call
         const url =
-            "http://localhost:5000/storeadmin/login";
+            `${process.env.MY_IP}/storeadmin/login`;
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -39,7 +39,7 @@ export default function AdminLogin(props) {
 
     const autoLogin = async () => {
         const url =
-            "http://localhost:5000/storeadmin/getadmin";
+        `${process.env.MY_IP}/storeadmin/getadmin`;
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -59,12 +59,12 @@ export default function AdminLogin(props) {
 
 
     return (
-        <div className='flexCenter'>
+        <div className='flexCenter' style={{background: "whitesmoke"}}>
             <div className='admlgnContainer flexCol'>
-                <p className='PrimHead'>Welcome Admin</p>
+                <p className='primHead'>Welcome Admin</p>
                 <input type='txt' name='email' onChange={emailChange} placeholder='email' />
                 <input type='password' name='password' onChange={passwdChange} placeholder='password' />
-                <button type='submit' onClick={findAdmin} className='PrimButton'> Submit </button>
+                <button type='submit' onClick={findAdmin} className='primButton' style={{marginTop:"3vh"}}> Submit </button>
             </div>
 
         </div>
