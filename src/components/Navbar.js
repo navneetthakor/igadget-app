@@ -1,8 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 
-// css file styling defined 
-import '../css/desktop.css';
 
 // photos importing 
 import logo from '../photos/igadgetnobg.png';

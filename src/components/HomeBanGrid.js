@@ -4,7 +4,6 @@ import headPhone from '../photos/headPhone.png'
 import mobilePhone from '../photos/mobilePhone.png'
 import maleWatch from '../photos/maleWatch.png'
 import femaleWatch from '../photos/femaleWatch.png'
-import '../css/desktop.css'
 
 export default function HomeBanGrid() {
   return (

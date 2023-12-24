@@ -1,6 +1,5 @@
 import React from 'react';
 import homeBanner from '../photos/homeBanner.png';
-import '../css/desktop.css'
 
 export default function HomeBanner() {
   return (
