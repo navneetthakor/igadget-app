@@ -1,3 +1,158 @@
 @media screen and (max-width: 1200px) {
+    /* css variables */
+    :root {
+        --primeColor1: royalblue;
+        --primeColor2: #FFE5B4;
+    }
+    /* ----------------navbar styling---------------------  */
+    header{
+        height: 10vh;
+        width: 100vw;
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
     
+    /* logo styling  */
+    .logodiv{
+        height: 7vh;
+        width: 50vw;
+        margin-top: 1.5vh;
+        margin-left: 20vw;
+    }
+
+    .logodiv > img{
+        height: 100%;
+        width: 100%;
+    }
+
+    /* navbar button styling  */
+    #NavabarBtn{
+        display: block;
+        height: 5vh;
+        width: 10vw;
+        margin-left: 10vw;
+        margin-top: 3vh;
+        color: white;
+        border: 2px solid white;
+        border-radius: 5px;
+    }
+
+    /* SubMenu stying----- */
+    .CloseButton{
+        height: 5vh;
+        width: 10vw;
+        margin-left: 10vw;
+        margin-top: 3vh;
+        color: var(--primeColor1);
+        border-radius: 5px;
+        margin-left: 80vw;
+    }
+
+    .SubMenu .LinkContainer{
+        height: 40vh;
+        text-align: center;
+    }
+
+    .SubMenu .LinkContainer a{
+        text-decoration: none;
+        font-size: 3vh;
+        margin-top: 1vh;
+        border: 2px solid lightgray;
+        padding: 1vh;
+        border-radius: 5px;
+    }
+
+    /* Searchbar in navbar------ */
+    .NavSearch{
+        display: block;
+        height: 5vh;
+        width: 100vw;
+        overflow: hidden;
+        padding: 0 0;
+        display: flex;
+        flex-direction: row;
+        border: 2px solid gray;
+        /* border-radius: 5px; */
+    }
+    .NavSearch input, .NavSearch button{
+        display: block;
+        border: 2px solid white;
+        height: 100%;
+    }
+
+    .NavSearch>input {
+        width: 90vw;
+        padding-left: 5vw;
+    }
+    
+    .NavSearch>button {
+        width: 10vw;
+        background-color: var(--primeColor2);
+    }
+    .NavSearch>button>img {
+        height: 100%;
+        width: 100%;
+        cursor: pointer;
+    }
+
+
+    /* ------HomePage (HomeBanner styling)----- */
+    #homeBanner {
+        height: 70vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    #homeBanner>img {
+        height: 80%;
+        width: 90%;
+        border-radius: 8px;
+    }
+
+
+    /* --------HomePage (WatchGrid related)--------- */
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* ---------------------------------------------------------
+    ------------------------utility classes------------------
+    --------------------------------------------------------- */
+    .DisableCss{
+        display: none;
+    }
+    .FlexRow{
+        display: flex;
+        flex-direction: row;
+    }
+
+    .FlexCol{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .FlexBetween{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .FlexCenter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
   }
