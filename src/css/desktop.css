@@ -172,7 +172,7 @@ subheader a:hover {
 }
 
 /* --------------------------Watch Grid------------------------------------------------ */
-#wGUpperImg {
+.wGUpperImg {
     height: 50%;
     width: 100%;
     display: flex;
@@ -182,13 +182,13 @@ subheader a:hover {
 }
 
 /* upper images */
-#wGUpperImg>img {
+.wGUpperImg img {
     height: 90%;
     width: 48%;
     border-radius: 8px;
 }
 
-#femaleWatch {
+.femaleWatch {
     margin-left: 3%;
 }
 
@@ -248,7 +248,7 @@ subheader a:hover {
 }
 
 /* ------------------------------BottomGrid Styling-------------------------- */
-#bottomGrid{
+.bottomGrid{
     height: 45%;
     width: 100%;
     /* margin-left: 10%; */

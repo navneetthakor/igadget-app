@@ -39,11 +39,19 @@ export default function WatchGrid() {
     <>
     {
       load ? (
-      <div className='container'>
+      <div id='WGContainer' className='container'>
       {/* upper 2 images */}
-      <div id='wGUpperImg' onClick={searchData}>
-          <img src={maleWatch}  className='link' alt=''/>
-          <img src={femaleWatch} className='link' id='femaleWatch' alt=''/>
+      <div id='wGBanner' className='wGUpperImg DisableCss' onClick={searchData}>
+          <img src={maleWatch}  className='link DisableCss' alt=''/>
+          <img src={femaleWatch} className='link femaleWatch DisableCss' alt=''/>
+      </div>
+
+      {/* -------for mobile------------- */}
+      <div id='WGBanner'  className='disableCss' onClick={searchData}>
+        <div id='Wrapper' className='FlexRow'>
+          <img src={maleWatch} id='Ban1'  className='disableCss' alt=''/>
+          <img src={femaleWatch} id='Ban2' className='disableCss' alt=''/>
+        </div>
       </div>
       <BottomGrid iteam={watch}/>
    </div>
