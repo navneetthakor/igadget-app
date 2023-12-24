@@ -1,6 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate} from 'react-router-dom';
 
+// for icons (------used in mobile-------)
+import { CgMenu, CgCloseR} from 'react-icons/cg'
+
 
 // photos importing 
 import logo from '../photos/igadgetnobg.png';
@@ -62,6 +65,11 @@ export default function Navbar() {
           <Link to="/fav" as={Link} className='headbtn' id='fvrtIcon'><img src={favorite} alt=""/></Link>
           <Link to="/cart" as={Link} className='headbtn' id='shpIcon'><img src={shoppingcart} alt=""/></Link>
           <Link to="/useracnt" as={Link} className='headbtn' id='acntIcon'><img src={acountIcon} alt="" /></Link>
+        </div>
+
+        <div className='mobile-navbar-btn'>
+          <CgMenu/>
+          <CgCloseR/>
         </div>
       </header>
       

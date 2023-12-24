@@ -1,31 +1,8 @@
-import React, { useEffect} from "react";
+import React from "react";
+import '../css/desktop.css'
+import '../css/mobile.css'
 
 export default function Footer() {
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      if (width > 1200) {
-        import('../css/desktop.css').then(() => {
-          console.log('Loaded large screen styles');
-        });
-      } else {
-        import('../css/mobile.css').then(() => {
-          console.log('Loaded small screen styles');
-        });
-      }
-    };
-
-    // Initial load
-    handleResize();
-
-    // Event listener for window resize
-    window.addEventListener('resize', handleResize);
-
-    // Cleanup event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   return (
     <>
