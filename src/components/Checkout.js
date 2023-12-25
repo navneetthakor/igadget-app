@@ -109,7 +109,7 @@ export default function Checkout() {
                 <div className="checkout2in1">
                   <div className="flexCol">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="tnavneet86@gmail.com"/>
+                    <input type="email" id="email" name="email" placeholder="tnavneet@gmail.com"/>
                   </div>
                   <div className="flexCol">
                     <label htmlFor="mobilen">Mobile No.</label>
