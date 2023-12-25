@@ -1,38 +1,43 @@
 import React from "react";
 import Iteam from "./Iteam";
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 export default function BottomGrid(props) {
   let { iteam } = props;
   iteam = Array.from(iteam);
+
+  // for mobile-------
+  const responsive = {
+    tablet: {
+      breakpoint: { max: 1024, min: 464 },
+      items: 3,
+    },
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 2,
+    },
+  };
+
   return (
     <>
       {/* --desktop--- */}
-      <div id="" className="bottomGrid">
+      <div className="bottomGrid DisableCss">
         {iteam.map((a) => {
           return <Iteam key={a._id} iteam={a} />;
         })}
       </div>
 
-      {/* ---Mobile--- */}
-      {/* <div id="Slider" className="disableCss DisBlockCss">
-        
-        <input type="radio" name="slider" id="Slider1" />
-        <input type="radio" name="slider" id="Slider2" />
-        <input type="radio" name="slider" id="Slider3" />
-        <input type="radio" name="slider" id="Slider4" />
-        <input type="radio" name="slider" id="Slider5" />
-        <input type="radio" name="slider" id="Slider6" />
-
-        <div id="Slides" className="bottomGrid">
-          <div id="overflow">
-            <div id="inner">
-              {iteam.map((a) => {
-                return <Iteam key={a._id} iteam={a} />;
-              })}
-            </div>
-          </div>
-        </div>
-      </div> */}
+      {/* --Mobile -----------  */}
+      <div className="disableCss DisBlockCss">
+        <Carousel responsive={responsive}>
+          {iteam.map((a) => {
+            return <Iteam key={a._id} iteam={a} />;
+          })}
+        </Carousel>
+      </div>
     </>
   );
 }
+
+

@@ -198,7 +198,7 @@ subheader a:hover {
 
 /* ------------------------iteam Grid styling---------------------------------------- */
 .iteamGrid {
-    display: grid;
+    display: flex;
     background-color: white;
     justify-items: center;
     align-items: center;
