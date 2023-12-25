@@ -318,7 +318,7 @@ subheader a:hover {
     border-top-right-radius: 8px;
     border-bottom: 0.1px solid lightgray;
 }
-#prodMainDetl > div{
+.pmd1{
     height: 100%;
     width: 50%;
 }

@@ -1,6 +1,6 @@
 @media screen and (max-width: 1200px) {
     * {
-        font-size: 1.5vh;
+        font-size: 2vh;
     }
 
     /* css variables */
@@ -261,6 +261,7 @@
         margin-bottom: 2%;
         margin-top: 2%;
     }
+
     /* payment related */
     #checkoutPayment {
         height: 50vh;
@@ -285,43 +286,44 @@
     }
 
     /* ---------for cart and fav------  */
-    #cartPage{
+    #cartPage {
         height: auto;
         background-color: white;
         overflow: visible;
         margin: 0;
-        border:transparent;
+        border: transparent;
     }
-    .cartMain{
+
+    .cartMain {
         width: 90vw;
         overflow: visible;
     }
 
-    .fCart{
+    .fCart {
         height: 35vh;
         border: 1px solid lightgray;
         border-radius: 5px;
     }
 
-    .fCart button{
+    .fCart button {
         margin-top: 2vh;
         margin-left: 1vw;
     }
-    
-    .cartIteamImg{
+
+    .cartIteamImg {
         height: 50%;
         width: 70%;
         margin-inline: auto;
         margin-top: 4%;
     }
-    
-    
-    .cartIteamTitle{
+
+
+    .cartIteamTitle {
         margin-left: 2vw;
         width: 35%;
     }
 
-    .CartContent{
+    .CartContent {
         width: 70%;
         height: 20%;
         display: flex;
@@ -329,11 +331,81 @@
         margin-top: 5%;
         margin-inline: auto;
     }
-    .CartContentIteam{
+
+    .CartContentIteam {
         width: auto;
         margin: 0;
     }
-    
+
+    /* ------------------------------------------------------------------------------ */
+    /* ---------------------Product page------------------------------------------ */
+    /* ----------------------------------------------------------------------------- */
+    #prodMainDetl {
+        height: auto;
+    }
+
+    #prodImag {
+        height: 60vh;
+        width: 90vw;
+        display: inline;
+        margin-inline: auto;
+    }
+
+    /* main details division */
+    #pdetails {
+        border-top: 2px solid lightgray;
+        border-radius: 8px;
+        padding-left: 3%;
+        font-size: 2vh;
+    }
+
+    #pdetails>h1 {
+        font-size: 3.5vh;
+    }
+
+    /* rating division */
+    #totratings {
+        height: 5vh;
+        width: 42vw;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    #overview span {
+        font-size: 2.5vh;
+    }
+
+    /* product counter */
+    #pcounter {
+        border: 1px solid gray;
+        height: 5vh;
+        width: 30vw;
+    }
+
+    #pcounter>div {
+        padding-top: 1vh;
+    }
+
+    /* cart  */
+    #cart {
+        width: 70vw;
+        height: 5vh;
+        margin-bottom: 2vh;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    #addFavorite {
+        width: 15vw;
+    }
+
+    /* ---description container--- */
+    #pDesc {
+        padding-bottom: 5vh;
+        height:max-content;
+    }
+
 
 
 
@@ -400,13 +472,13 @@
         border-radius: 8px;
     }
 
-    .primButton{
+    .primButton {
         height: 5vh;
         width: 20vw;
         font-size: 1.8vh;
     }
 
-    .secButton{
+    .secButton {
         height: 5vh;
         width: 20vw;
         font-size: 1.8vh;
