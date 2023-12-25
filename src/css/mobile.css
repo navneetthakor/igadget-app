@@ -284,6 +284,58 @@
         font-size: 1.8vh;
     }
 
+    /* ---------for cart and fav------  */
+    #cartPage{
+        height: auto;
+        background-color: white;
+        overflow: visible;
+        margin: 0;
+        border:transparent;
+    }
+    .cartMain{
+        width: 90vw;
+        overflow: visible;
+    }
+
+    .fCart{
+        height: 35vh;
+        border: 1px solid lightgray;
+        border-radius: 5px;
+    }
+
+    .fCart button{
+        margin-top: 2vh;
+        margin-left: 1vw;
+    }
+    
+    .cartIteamImg{
+        height: 50%;
+        width: 70%;
+        margin-inline: auto;
+        margin-top: 4%;
+    }
+    
+    
+    .cartIteamTitle{
+        margin-left: 2vw;
+        width: 35%;
+    }
+
+    .CartContent{
+        width: 70%;
+        height: 20%;
+        display: flex;
+        justify-content: space-between;
+        margin-top: 5%;
+        margin-inline: auto;
+    }
+    .CartContentIteam{
+        width: auto;
+        margin: 0;
+    }
+    
+
+
 
 
 
@@ -349,11 +401,13 @@
     }
 
     .primButton{
+        height: 5vh;
         width: 20vw;
         font-size: 1.8vh;
     }
 
     .secButton{
+        height: 5vh;
         width: 20vw;
         font-size: 1.8vh;
     }
