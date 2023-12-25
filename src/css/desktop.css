@@ -7,6 +7,10 @@
     /* border: 2px solid red; */
 }
 
+.disableCss{
+    display: none;
+}
+
 img:hover, button:hover{
     cursor: pointer;
 }
@@ -22,10 +26,6 @@ img:active{
 }
 
 /*-------------------- header of a website----------------------------  */
-/* nav{
-    position: sticky;
-    top: 0;
-} */
 header {
     height: 11vh;
     width: 100vw;
@@ -36,21 +36,21 @@ header {
 }
 
 /* logo division of header  */
-#logodiv {
+.logodiv {
     height: 100%;
     width: 20%;
     margin-left: 8vw;
     overflow: hidden;
 }
 
-#logodiv img {
+.logodiv img {
     height: 70%;
     width: 80%;
     margin-top: 0.8vw;
 }
 
 /* serachbar design  */
-#searchdiv {
+.searchdiv {
     border: 2px solid white;
     border-radius: 5px;
     height: 40%;
@@ -62,29 +62,29 @@ header {
     flex-direction: row;
 }
 
-#searchdiv>* {
+.searchdiv>* {
     border: 2px solid white;
     height: 100%;
 }
 
-#searchdiv>input {
+.searchdiv>input {
     width: 93%;
     padding-left: 5%;
 }
 
-#searchdiv>button {
+.searchdiv>button {
     width: 7%;
     background-color: var(--primeColor2);
 }
 
-#searchdiv>button>img {
+.searchdiv>button>img {
     height: 100%;
     width: 100%;
     cursor: pointer;
 }
 
 /* icon devision  */
-#headicon {
+.headicon {
     height: 55%;
     width: 20%;
     /* border: 2px solid white; */
@@ -101,13 +101,13 @@ header {
     border: none;
 }
 
-#acntIcon img {
+.acntIcon img {
     height: 100%;
     /* margin-left: 3vw; */
 }
 
-#fvrtIcon>img,
-#shpIcon>img {
+.fvrtIcon>img,
+.shpIcon>img {
     height: 80%;
     filter: invert();
 }
@@ -172,7 +172,7 @@ subheader a:hover {
 }
 
 /* --------------------------Watch Grid------------------------------------------------ */
-#wGUpperImg {
+.wGUpperImg {
     height: 50%;
     width: 100%;
     display: flex;
@@ -182,13 +182,13 @@ subheader a:hover {
 }
 
 /* upper images */
-#wGUpperImg>img {
+.wGUpperImg img {
     height: 90%;
     width: 48%;
     border-radius: 8px;
 }
 
-#femaleWatch {
+.femaleWatch {
     margin-left: 3%;
 }
 
@@ -198,7 +198,7 @@ subheader a:hover {
 
 /* ------------------------iteam Grid styling---------------------------------------- */
 .iteamGrid {
-    display: grid;
+    display: flex;
     background-color: white;
     justify-items: center;
     align-items: center;
@@ -248,7 +248,7 @@ subheader a:hover {
 }
 
 /* ------------------------------BottomGrid Styling-------------------------- */
-#bottomGrid{
+.bottomGrid{
     height: 45%;
     width: 100%;
     /* margin-left: 10%; */
@@ -261,7 +261,7 @@ subheader a:hover {
 }
 
 /* ---------------------------SideGrid styling----------------------------- */
-#sideGrid{
+.sideGrid{
     height: 100%;
     width: 60%;
     background-color: whitesmoke;
@@ -294,9 +294,7 @@ subheader a:hover {
 
 #footer div{
     width: 33%;
-    /* border: 2px solid red; */
     padding-left: 5vw;
-    /* align-items: center; */
 }
 
 #footer h3{
@@ -320,7 +318,7 @@ subheader a:hover {
     border-top-right-radius: 8px;
     border-bottom: 0.1px solid lightgray;
 }
-#prodMainDetl > div{
+.pmd1{
     height: 100%;
     width: 50%;
 }

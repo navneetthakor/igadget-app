@@ -36,7 +36,7 @@ export default function RootLayout() {
   const getWatch = async () => {
     // api call
     const url =
-    `http://localhost:5000/storeproducts/fetchlimitprods?page=1&pageSize=6&prodname=watch`;
+    `${process.env.REACT_APP_MY_IP}/storeproducts/fetchlimitprods?page=1&pageSize=6&prodname=watch`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
