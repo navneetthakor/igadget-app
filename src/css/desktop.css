@@ -261,7 +261,7 @@ subheader a:hover {
 }
 
 /* ---------------------------SideGrid styling----------------------------- */
-#sideGrid{
+.sideGrid{
     height: 100%;
     width: 60%;
     background-color: whitesmoke;

@@ -41,7 +41,7 @@ export default function WatchGrid() {
   return (
     <>
       {load ? (
-        <div id="WGContainer" className="container">
+        <div id="WGContainer" className="ContainerFrame container">
           {/* heading for mobile devices */}
           <h1 className="disableCss DisBlockCss PrimeHeading">
             Watch Collection

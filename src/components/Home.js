@@ -18,8 +18,10 @@ export default function Home() {
       <HomeBanner/>
       <WatchGrid/>
       <MobileGrid/>
+      <div className='DisableCss'>
       <HeadPhoneGrid/>
       <HorizontalBanner image={laptopBanner}/>
+      </div>
       <LaptopGrid/>
       <Footer/>
     </div>

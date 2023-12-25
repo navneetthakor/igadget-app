@@ -29,7 +29,7 @@ export default function BottomGrid(props) {
       </div>
 
       {/* --Mobile -----------  */}
-      <div className="disableCss DisBlockCss">
+      <div className="HomeCarousel disableCss DisBlockCss">
         <Carousel responsive={responsive}>
           {iteam.map((a) => {
             return <Iteam key={a._id} iteam={a} />;
