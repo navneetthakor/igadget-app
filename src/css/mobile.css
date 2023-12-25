@@ -233,6 +233,14 @@
     #chekoutOuterContainer {
         height: 220vh;
     }
+    #chekoutOuterContainer input[type="txt"],
+    #chekoutOuterContainer input[type="email"],
+    #chekoutOuterContainer input[type="number"]{
+        width: 40vw;
+    }
+    #chekoutOuterContainer input[name="address"]{
+        width: 80vw;
+    }
 
     #chekoutOuterContainer div,
     #chekoutOuterContainer input
