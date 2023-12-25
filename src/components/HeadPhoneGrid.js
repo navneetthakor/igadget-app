@@ -36,12 +36,15 @@ export default function HeadPhoneGrid() {
 
   return (
     <>
-    {load ? (<div className="container flexRow topmargin">
+    {load ? (<div className="ContainerFrame container flexRow topmargin FlexCol">
+      {/* ---heading for mobile devices-------- */}
+      <h1 className="PrimeHeading disableCss DisBlockCss">HeadPh Collection</h1>
+
         {/* grid area for iteams */}
         <SideGrid iteam={headph} />
 
         {/* image division  */}
-        <div className="gV1Image marginLeft" onClick={searchData}>
+        <div className="gV1Image marginLeft DisableCss" onClick={searchData}>
           <img src={headPhone} alt="" />
         </div>
       </div>):(

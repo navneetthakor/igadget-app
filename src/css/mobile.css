@@ -181,6 +181,15 @@
         margin-inline: auto;
     }
 
+    /* -----Laptop Grid----------- */
+    .gH1Image{
+        border:1px solid lightgray;
+        height: 60vh;
+        width: 96vw;
+        margin-inline: auto;
+        margin-bottom: 7vh;
+    }
+
     
 
 

@@ -23,6 +23,11 @@ export default function Home() {
       <HorizontalBanner image={laptopBanner}/>
       </div>
       <LaptopGrid/>
+
+      <div className='disableCss DisBlockCss'>
+      <HeadPhoneGrid/>
+
+      </div>
       <Footer/>
     </div>
   )
