@@ -53,7 +53,7 @@ export default function Checkout() {
     <>
       <div className="flexCenter" id="chekoutOuterContainer" onLoad={doTotal}>
         {/* --------------------------container which has all the parts in it ------------------------ */}
-        <div id="checkoutInnerContainer" className="flexRow">
+        <div id="checkoutInnerContainer" className="flexRow FlexCol">
 
           {/*---left container (it has only shiping info)--- */}
           <div id="checkoutShipping" className="checkoutShape flexCol">

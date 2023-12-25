@@ -203,7 +203,7 @@
     }
 
     /* -------Footer------ */
-    #footer{
+    #footer {
         height: 45vh;
     }
 
@@ -227,6 +227,62 @@
         color: whitesmoke;
     }
 
+    /* --------------------------------------------------------------------------------------------------
+    ---------------------------------Checkout Page----------------------------------------------------
+    ----------------------------------------------------------------------------------------------- */
+    #chekoutOuterContainer {
+        height: 220vh;
+    }
+
+    #checkoutInnerContainer {
+        height: 200vh;
+        width: 90vw;
+        border-radius: 8px;
+    }
+
+    /* ------------------------------------------styling for left part  */
+    #checkoutShipping {
+        height: 100vh;
+        width: 100%;
+    }
+
+    /* -------------------------------------------styling for right part  */
+    #checkoutRightCont {
+        height: 100%;
+        width: 100%;
+        margin-left: 0;
+
+    }
+
+    /* devlivery related  */
+    #chekcoutDelivery {
+        height: 50vh;
+        width: 100%;
+        margin-bottom: 2%;
+        margin-top: 2%;
+    }
+    /* payment related */
+    #checkoutPayment {
+        height: 50vh;
+        width: 100%;
+        border: 0.5px solid gray;
+    }
+
+    #checkoutPaymentInfo>button {
+        margin-left: 35%;
+        margin-top: 1vh;
+    }
+
+
+    /* classes used in many checkout components  */
+    /* used in chekout,cart,fav,userAcount pages  */
+    .checkoutHeading {
+        padding: 2vh 5vw;
+    }
+
+    .checkoutSecHeading {
+        font-size: 1.8vh;
+    }
 
 
 
