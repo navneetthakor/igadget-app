@@ -347,4 +347,14 @@
         border: 2px solid lightgray;
         border-radius: 8px;
     }
+
+    .primButton{
+        width: 20vw;
+        font-size: 1.8vh;
+    }
+
+    .secButton{
+        width: 20vw;
+        font-size: 1.8vh;
+    }
 }
