@@ -186,12 +186,14 @@
     /* ----Side Grid styling-----  */
     /* used in mobile and headphone grid  */
     .sideGrid {
-        width: 80%;
+        width: 94%;
         height: 80%;
         display: grid;
         grid-template-rows: repeat(3, 1fr);
         grid-template-columns: repeat(2, 1fr);
         margin-inline: auto;
+        border-radius: 8px;
+        overflow: hidden;
     }
 
     /* -----Laptop Grid----------- */
