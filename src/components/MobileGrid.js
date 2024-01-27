@@ -36,7 +36,9 @@ export default function MobileGrid() {
     
   return (
     <>
-    {load ? (<div className='ContainerFrame container topmargin flexRow FlexCol'>
+    {load ? (
+    <div className='bg1 DisableCss'>
+    <div className='ContainerFrame container topmargin flexRow FlexCol'>
         {/* banner division  */}
         <div className='gV1Image marginRight DisableCss' onClick={searchData}>
             <img src={mobilePhone} alt='' />
@@ -46,6 +48,7 @@ export default function MobileGrid() {
         <h1 className="PrimeHeading disableCss DisBlockCss">Mobile Collection</h1>
         {/* iteam division */}
         <SideGrid iteam={mobile} />
+    </div>
     </div>):(
       <LoadIndicator/>
     )}

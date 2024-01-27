@@ -40,6 +40,8 @@ export default function LaptopGrid() {
   return (
     <>
       {load ? (
+        <div className="bg2 DisableCss">
+
         <div style={{height: "80vh"}} className="ContainerFrame container topmargin flexCol">
           {/* ---heading for mobile devices-------- */}
           <h1 style={{marginBottom:"2vh"}} className="PrimeHeading disableCss DisBlockCss">
@@ -51,6 +53,7 @@ export default function LaptopGrid() {
 
           {/* gottom grid  */}
           <BottomGrid iteam={laptop} />
+        </div>
         </div>
       ) : (
         <LoadIndicator />

@@ -41,6 +41,7 @@ export default function WatchGrid() {
   return (
     <>
       {load ? (
+        <div className="bg2 DisableCss">
         <div id="WGContainer" className="ContainerFrame container">
           {/* heading for mobile devices */}
           <h1 className="disableCss DisBlockCss PrimeHeading">
@@ -70,6 +71,7 @@ export default function WatchGrid() {
           <div id="BottomGrid">
             <BottomGrid iteam={watch} />
           </div>
+        </div>
         </div>
       ) : (
         <LoadIndicator />
