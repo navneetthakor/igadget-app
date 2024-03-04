@@ -7,6 +7,8 @@ import WatchContext from "../contexts/WatchContext";
 import { useNavigate } from "react-router-dom";
 import CommonContext from "../contexts/CommonContext";
 
+
+
 export default function WatchGrid() {
   let { watch, load } = useContext(WatchContext);
   watch = Array.from(watch);
@@ -31,6 +33,7 @@ export default function WatchGrid() {
     navigate("/prods");
   };
 
+  // while loop marked for removal -----
   while (watch === undefined)
     return (
       <>

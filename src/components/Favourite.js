@@ -5,6 +5,9 @@ import { add } from "../store/CartSlice";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 
+// importing remove icon 
+import removeIcon from "../photos/removeIcon.png"
+
 export default function Cart() {
   const product = useSelector((state) => state.fav);
   const dispatch = useDispatch();
@@ -30,6 +33,7 @@ const handleAddToCart = () =>{
   const favs = product?.map((prodp) => {
     return (
       <div className="fCart flexRow FlexCol">
+       <img className="disableCss DisBlockCss" style={{margin: "5px 15px"}} src={removeIcon} height="15px" width="15px" alt="remove" onClick={() => removeToCart(prodp)} />
         <div className="cartIteamImg ">
           <img
             src={`${process.env.REACT_APP_MY_IP}/${prodp.images[0]}`.replace(/\\/g, "/")}
@@ -54,9 +58,9 @@ const handleAddToCart = () =>{
           </button>
         </div>
 
-        <button style={{display:"inline", marginInline:"auto", marginBottom: "2%"}} className="secButton disableCss" onClick={() => removeToCart(prodp)}>
+        {/* <button style={{display:"inline", marginInline:"auto", marginBottom: "2%"}} className="secButton disableCss" onClick={() => removeToCart(prodp)}>
             Remove
-          </button>
+          </button> */}
       </div>
     );
   });
