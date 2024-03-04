@@ -17,7 +17,7 @@ export default function AdminLogin(props) {
     const findAdmin = async (formData) => {
         // api call
         const url =
-            `${process.env.REACT_APP_MY_IP}/storeadmin/login`;
+            `${process.env.REACT_APP_MY_IP}/admin/login`;
         const response = await fetch(url, {
             method: "POST",
             headers: {
@@ -26,7 +26,8 @@ export default function AdminLogin(props) {
             body: JSON.stringify({"email":email, "password":passwd})
         });
         const data = await response.json();
-
+        console.log(data);
+        
         localStorage.setItem('admin', data.authtoken);
 
         if(data.signal === "green")
@@ -39,7 +40,7 @@ export default function AdminLogin(props) {
 
     const autoLogin = async () => {
         const url =
-        `${process.env.REACT_APP_MY_IP}/storeadmin/getadmin`;
+        `${process.env.REACT_APP_MY_IP}/admin/getadmin`;
         const response = await fetch(url, {
             method: "POST",
             headers: {

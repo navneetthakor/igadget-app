@@ -98,17 +98,17 @@ export default function ProductPage() {
               {/* overview division */}
               <div className="flexRow">
                 typical price :{" "}
-                <h3 className="dummyPrice">{prodp.dummyPrice}/-</h3>
+                <h3 className="dummyPrice">{prodp.mrp}/-</h3>
               </div>
               <div className="flexRow">
-                Our price : <h3 className="price">{prodp.price}/-</h3>
+                Our price : <h3 className="price">{prodp.sellprice}/-</h3>
               </div>
 
               <div id="overview" className=" flexCol">
                 <span>company : {prodp.company} </span>
-                <span>Modal : {prodp.model} </span>
-                <span>Height : {prodp.height} </span>
-                <span>width : {prodp.width} </span>
+                <span>category : {prodp.category} </span>
+                <span>dimension : {prodp.dimension} </span>
+                <span>weight : {prodp.weight} </span>
               </div>
 
               <div id="pcounter" className="flexRow">
@@ -136,7 +136,7 @@ export default function ProductPage() {
           {/* descrioption division  */}
           <div id="pDesc" className="container flexCol">
             <h2>Description :-</h2>
-            <h3>{prodp.description}</h3>
+            <h3>{prodp.desc}</h3>
           </div>
         </>
       )}

@@ -47,7 +47,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setWatch(data);
+    setMobile(data.products);
   };
 
   // -------MobileContext--------------
@@ -66,7 +66,6 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    console.log(data.products);
     setMobile(data.products);
   };
 
@@ -86,7 +85,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setLaptop(data);
+    setMobile(data.products);
   };
 
   // -------HeadphContext--------------
@@ -105,7 +104,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setHeadph(data);
+    setMobile(data.products);
   };
 
   useEffect(() => {

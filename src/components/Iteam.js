@@ -20,7 +20,7 @@ export default function Iteam(props) {
       </div>
       <div id='iteamDetails'>
         <h3>{iteam.title}</h3>
-        <h4> <span>&#8377;{iteam.dummyPrice}</span> &#8377;{iteam.price}</h4>
+        <h4> <span>&#8377;{iteam.mrp}</span> &#8377;{iteam.sellprice}</h4>
       </div>
       </div>
     </>
