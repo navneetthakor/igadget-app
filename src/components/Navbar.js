@@ -31,7 +31,7 @@ export default function Navbar() {
   }
   const searchData = async()=>{
     // api call
-    const url = `${process.env.REACT_APP_MY_IP}/storeproducts/fetchnamedprods?prodname=${search}`;
+    const url = `${process.env.REACT_APP_MY_IP}/product/fetchcategoryprods?category=${search}`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
