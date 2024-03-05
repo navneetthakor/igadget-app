@@ -36,7 +36,7 @@ export default function RootLayout() {
   const getWatch = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&prodname=watch`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=watch`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -47,7 +47,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setMobile(data.products);
+    setWatch(data.products);
   };
 
   // -------MobileContext--------------
@@ -56,7 +56,7 @@ export default function RootLayout() {
   const getMobile = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&prodname=mobile`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=mobile`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -75,7 +75,7 @@ export default function RootLayout() {
   const getLaptop = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&prodname=laptop`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=laptop`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -85,7 +85,8 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setMobile(data.products);
+    console.log(data.products);
+    setLaptop(data.products);
   };
 
   // -------HeadphContext--------------
@@ -94,7 +95,7 @@ export default function RootLayout() {
   const getHeadph = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&prodname=headph`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=headph`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -104,7 +105,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setMobile(data.products);
+    setHeadph(data.products);
   };
 
   useEffect(() => {
