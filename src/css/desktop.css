@@ -221,7 +221,7 @@ subheader a:hover {
 }
 
 #iteamImage {
-    margin-top: 10%;
+    margin-top: 5%;
     margin-left: 15%;
     height: 60%;
     width: 70%;
@@ -251,9 +251,8 @@ subheader a:hover {
 .bottomGrid{
     height: 45%;
     width: 100%;
-    /* margin-left: 10%; */
     display: grid;
-    grid-template-columns: repeat(6,1fr);
+    grid-template-columns: repeat(4,1fr);
     align-items: center;
     background-color: whitesmoke;
     border-radius: 8px;

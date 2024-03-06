@@ -5,6 +5,7 @@ import "react-multi-carousel/lib/styles.css";
 
 export default function BottomGrid(props) {
   let { iteam } = props;
+  let cnt = 0;
   iteam = Array.from(iteam);
 
   // for mobile-------
@@ -18,14 +19,15 @@ export default function BottomGrid(props) {
       items: 2,
     },
   };
+  
 
   return (
     <>
       {/* --desktop--- */}
       <div className="bottomGrid DisableCss">
-        {iteam.map((a) => {
-          return <Iteam key={a._id} iteam={a} />;
-        })}
+      {iteam.map((a) => {
+            return <Iteam key={a._id} iteam={a} />;
+          })} 
       </div>
 
       {/* --Mobile -----------  */}

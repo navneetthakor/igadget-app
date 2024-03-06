@@ -36,7 +36,7 @@ export default function RootLayout() {
   const getWatch = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=watch`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=4&category=watch`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -75,7 +75,7 @@ export default function RootLayout() {
   const getLaptop = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=laptop`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=4&category=laptop`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
