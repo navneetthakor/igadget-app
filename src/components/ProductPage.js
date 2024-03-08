@@ -2,15 +2,20 @@ import React, { useContext, useState } from "react";
 import heart from "../photos/heart.png";
 import LoadIndicator from "./LoadIndicator";
 import ProdPageContext from "../contexts/ProdPageContext";
-import { add } from "../store/CartSlice";
-import { fadd } from "../store/FavoriteSlice";
+import { add, remove } from "../store/CartSlice";
+import { fadd, fremove } from "../store/FavoriteSlice";
 import { useDispatch } from "react-redux";
 import Navbar from "./Navbar";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductPage() {
   const { prodp, load } = useContext(ProdPageContext);
   const [mainimg, setMainimg] = useState(prodp.images[0]);
   let dummyimg;
+  let url = process.env.REACT_APP_MY_IP;
+
+  // for navigation 
+  const navigate = useNavigate();
 
   // ----------to change main image--------------
   const setImg = () => {
@@ -32,15 +37,61 @@ export default function ProductPage() {
 
   // ---------------------------add to cart--------------------------
   const dispatch = useDispatch();
-  const handleAddToCart = () => {
+  const handleAddToCart = async () => {
+    if(!localStorage.getItem("custmrtoken")) {
+      alert("please login first");
+      navigate('/custmrlogin')
+      return;
+    }
     const updatedProd = { ...prodp, ct: ct };
     dispatch(add(updatedProd));
+
+    url += "/cart/addToCart";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "custmrtoken": localStorage.getItem("custmrtoken")
+      },
+      body: JSON.stringify({ product_id: prodp._id, quantity: ct }),
+    });
+    const res = await response.json();
+
+    if (res.signal === "red") {
+      alert(res);
+      dispatch(remove(prodp._id));
+    }
+    else alert("successful")
   };
 
   // --------------------------add to fav--------------------------
-  const handleAddToFav = () => {
+  const handleAddToFav =  async () => {
+    if(!localStorage.getItem("custmrtoken")) {
+      alert("please login first");
+      navigate('/custmrlogin')
+      return;
+    }
+
     const updatedProd = { ...prodp, ct: ct };
     dispatch(fadd(updatedProd));
+
+    url += "/cart/addToFav";
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "custmrtoken": localStorage.getItem("custmrtoken")
+      },
+      body: JSON.stringify({ product_id: prodp._id, quantity: ct }),
+    });
+    console.log(response);
+    const res = await response.json();
+
+    if (res.signal === "red") {
+      alert(res);
+      dispatch(fremove(prodp._id));
+    }
+    else alert("successful");
   };
 
   // -------------actual component to be returned---------------------
@@ -97,8 +148,7 @@ export default function ProductPage() {
 
               {/* overview division */}
               <div className="flexRow">
-                typical price :{" "}
-                <h3 className="dummyPrice">{prodp.mrp}/-</h3>
+                typical price : <h3 className="dummyPrice">{prodp.mrp}/-</h3>
               </div>
               <div className="flexRow">
                 Our price : <h3 className="price">{prodp.sellprice}/-</h3>
@@ -125,8 +175,18 @@ export default function ProductPage() {
                 <div id="addFavorite" onClick={handleAddToFav}>
                   <img src={heart} alt="" />
                 </div>
-                <button style={{width: "40vw"}} className="disableCss DisBlockCss primButton" onClick={handleAddToCart}>Add To Cart</button>
-                <div id="addToCart" className="DisableCss" onClick={handleAddToCart}>
+                <button
+                  style={{ width: "40vw" }}
+                  className="disableCss DisBlockCss primButton"
+                  onClick={handleAddToCart}
+                >
+                  Add To Cart
+                </button>
+                <div
+                  id="addToCart"
+                  className="DisableCss"
+                  onClick={handleAddToCart}
+                >
                   Add to Cart
                 </div>
               </div>

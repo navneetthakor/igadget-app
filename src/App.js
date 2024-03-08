@@ -15,6 +15,7 @@ import Prods from './components/Prods';
 import Checkout from './components/Checkout';
 import UserAcount from './components/UserAcount';
 import SubMenu from './components/SubMenu';
+import CustomerLogin from './components/CustomerLogin';
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -28,6 +29,7 @@ function App() {
         <Route exact path='/prods' element={<Prods/>}/>
         <Route exact path='/checkout' element={<Checkout/>}/>
         <Route exact path='/menu' element={<SubMenu/>}/>
+        <Route exact path='/custmrlogin' element={<CustomerLogin/>}/>
     </Route>
     
   ))
