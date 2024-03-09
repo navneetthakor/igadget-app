@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { remove } from "../store/CartSlice";
+import { add,remove } from "../store/CartSlice";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
 
@@ -11,6 +11,7 @@ export default function Cart() {
   const product = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const url = `${process.env.REACT_APP_MY_IP}/cart/deleteToCart`
+
 
   //function to remove iteam from card
   const removeToCart = async (prod) => {
@@ -27,8 +28,9 @@ export default function Cart() {
     console.log(res);
     if(res.signal === "red"){
       alert(res);
+      dispatch(add(prod));
     }
-    else alert(res.signal);
+
   };
 
   // for navigation

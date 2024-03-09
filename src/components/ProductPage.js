@@ -61,7 +61,6 @@ export default function ProductPage() {
       alert(res);
       dispatch(remove(prodp._id));
     }
-    else alert("successful")
   };
 
   // --------------------------add to fav--------------------------
@@ -91,7 +90,6 @@ export default function ProductPage() {
       alert(res);
       dispatch(fremove(prodp._id));
     }
-    else alert("successful");
   };
 
   // -------------actual component to be returned---------------------

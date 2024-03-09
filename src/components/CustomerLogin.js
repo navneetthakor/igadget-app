@@ -5,7 +5,8 @@ import igadgeLogo from "../photos/igadgetnobg.png"
 import { useNavigate } from 'react-router-dom'
 
 
-export default function CustomerLogin() {
+export default function CustomerLogin(props) {
+
   // for navigation 
   const navigate = useNavigate();
   // to store user inputs 

@@ -10,9 +10,12 @@ const favoriteSlice = createSlice({
         },
         fremove(state, action){
             return state.filter((iteam) => iteam._id !== action.payload)
+        },
+        setFav(state, action){
+            return [...action.payload]
         }
     }
 });
 
-export const {fadd,fremove} = favoriteSlice.actions;
+export const {fadd,fremove,setFav} = favoriteSlice.actions;
 export default favoriteSlice.reducer;

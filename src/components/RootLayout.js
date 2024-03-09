@@ -3,7 +3,9 @@ import { Outlet } from "react-router-dom";
 
 // store related imports
 import store from "../store/Store";
-import { Provider } from "react-redux";
+import { Provider, useDispatch } from "react-redux";
+import { setCart } from "../store/CartSlice";
+import { setFav} from "../store/FavoriteSlice";
 
 // importing contexts
 import WatchContext from "../contexts/WatchContext";
@@ -47,6 +49,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
+    console.log(data);
     setWatch(data.products);
   };
 
@@ -85,7 +88,6 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    console.log(data.products);
     setLaptop(data.products);
   };
 
@@ -108,18 +110,39 @@ export default function RootLayout() {
     setHeadph(data.products);
   };
 
+  // to add all the available products is cart 
+  const dispatch = useDispatch();
+  const setCarts = async()=>{
+    if(!localStorage.getItem('custmrtoken')) return;
+    // api call
+    const url =
+    `${process.env.REACT_APP_MY_IP}/cart/getCart`;
+
+    const response = await fetch(url,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "custmrtoken": localStorage.getItem('custmrtoken')
+      },
+    })
+    const data = await response.json();
+    console.log("your",{...data.cart.cart_prods});
+    dispatch(setCart(data.cart.cart_prods));
+    dispatch(setFav(data.cart.fav_prods));
+  }
+
   useEffect(() => {
     getWatch();
     getMobile();
     getHeadph();
     getLaptop();
+    setCarts();
     setLoad(true);
-  }, []);
+  }, [dispatch]);
 
   return (
     <>
       {load ? (
-        <Provider store={store}>
           <CommonContext.Provider value={{ common, setCommon }}>
             <WatchContext.Provider value={{ watch, setWatch, load }}>
               <MobileContext.Provider value={{ mobile, setMobile, load }}>
@@ -135,7 +158,6 @@ export default function RootLayout() {
               </MobileContext.Provider>
             </WatchContext.Provider>
           </CommonContext.Provider>
-        </Provider>
       ) : (
         <LoadIndicator />
       )}

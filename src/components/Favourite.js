@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fremove } from "../store/FavoriteSlice";
+import { fadd, fremove } from "../store/FavoriteSlice";
 import { add } from "../store/CartSlice";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
@@ -11,10 +11,26 @@ import removeIcon from "../photos/removeIcon.png"
 export default function Cart() {
   const product = useSelector((state) => state.fav);
   const dispatch = useDispatch();
+  const url = `${process.env.REACT_APP_MY_IP}/cart/deleteToFav`
 
   //function to remove iteam from card
-  const removeToCart = (prod) => {
+  const removeToCart = async (prod) => {
     dispatch(fremove(prod._id));
+
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "custmrtoken": localStorage.getItem("custmrtoken")
+      },
+      body: JSON.stringify({"product_id": prod._id}),
+    })
+    const res = await response.json();
+    console.log(res);
+    if(res.signal === "red"){
+      alert(res);
+      dispatch(fadd(prod));
+    }
   };
 
   // for navigation 
