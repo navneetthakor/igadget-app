@@ -1,16 +1,14 @@
-import React, {  useState } from 'react'
+import React, { useLayoutEffect, useState } from 'react'
 
 // importing photo (this is just for sample)
-import myprofile from '../photos/myprofile.jpg';
+import Avtar from '../photos/avtar.svg';
 import Navbar from './Navbar';
-import { useNavigate } from 'react-router-dom';
 import CustomerLogin from './CustomerLogin';
-
+import { useNavigate, useNavigation } from 'react-router-dom';
 
 export default function UserAcount() {
     // to store user data 
     const [user, setUser] = useState();
-
     const getUser = async() =>{
         const url = `${process.env.REACT_APP_MY_IP}/customer/getcustmr`;
         const response = await fetch(url, {
@@ -21,21 +19,23 @@ export default function UserAcount() {
               },
         });
         const data = await response.json();
+        console.log(data.custmr);
         setUser(data.custmr);
     }
-    
+
     // for navigation 
     const navigate = useNavigate();
-    const checkFirst = async() =>{
-        alert("hello");
-        if(!localStorage.getItem('custmrtoken')) {
-            alert("please Login/signup first");
-            navigate('/custmrlogin');
-        }
 
-        // if token is there then fetch user 
-        await getUser();
+    // logout button logic 
+    const handleLogout = () => {
+        localStorage.removeItem('custmrtoken');
+        navigate('/');
     }
+    
+
+    useLayoutEffect(()=>{
+        getUser();
+    },[]);
 
 
   return (
@@ -45,11 +45,11 @@ export default function UserAcount() {
    (<>
     <Navbar/>
     <div id='user2OuterCont' className='flexCenter'>
-        <div id='user2Container' className='flexCol' onLoad={checkFirst}>
+        <div id='user2Container' className='flexCol' >
             <div id='user2ImgCont' className=' flexCenter'>
                 <div className='flexCenter'>
-                    {user.image !== null &&    <img  src={`${process.env.REACT_APP_MY_IP}/${user.image}`.replace(/\\/g,"/")} alt=''/>}
-                    {user.image === null &&    <img  src={myprofile} alt=''/>}
+                    {user.image !== "" &&    <img  src={`${process.env.REACT_APP_MY_IP}/${user.image}`.replace(/\\/g,"/")} alt=''/>}
+                    {user.image === "" &&    <img  src={Avtar} alt=''/>}
                 </div>
             </div>
 
@@ -61,7 +61,7 @@ export default function UserAcount() {
             </div>
             <div className='user2Btn checkout2in1'>
                 <button className='primButton'>Edit</button>
-                <button className='primButton'>Logout</button>
+                <button className='primButton' onClick={handleLogout}>Logout</button>
             </div>
         </div>
     </div>
