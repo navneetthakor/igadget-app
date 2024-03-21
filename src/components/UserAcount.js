@@ -4,7 +4,7 @@ import React, { useLayoutEffect, useState } from 'react'
 import Avtar from '../photos/avtar.svg';
 import Navbar from './Navbar';
 import CustomerLogin from './CustomerLogin';
-import { useNavigate, useNavigation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function UserAcount() {
     // to store user data 

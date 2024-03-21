@@ -31,7 +31,6 @@ export default function CustomerLogin(props) {
     else setLogic("sign up");
   }
 
-
   // to handle form submit 
   const handleSubmit = async () =>{
     let url = process.env.REACT_APP_MY_IP;
@@ -49,7 +48,6 @@ export default function CustomerLogin(props) {
     const res = await response.json();
     if(res.signal === "green"){
       localStorage.setItem("custmrtoken", res.custmrtoken);
-      alert("Login successful");
       navigate(-1);
     }
     else{

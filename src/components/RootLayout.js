@@ -2,8 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 // store related imports
-import store from "../store/Store";
-import { Provider, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setCart } from "../store/CartSlice";
 import { setFav} from "../store/FavoriteSlice";
 
@@ -138,7 +137,7 @@ export default function RootLayout() {
     getLaptop();
     setCarts();
     setLoad(true);
-  }, [dispatch]);
+  }, []);
 
   return (
     <>
@@ -150,7 +149,7 @@ export default function RootLayout() {
                   <LaptopContext.Provider value={{ laptop, setLaptop, load }}>
                     <ProdPageContext.Provider value={{ prodp, setProdp, load }}>
                       <main>
-                        <Outlet />
+                        <Outlet setCarts={setCarts} />
                       </main>
                     </ProdPageContext.Provider>
                   </LaptopContext.Provider>
