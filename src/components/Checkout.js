@@ -3,62 +3,102 @@ import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect, useState } from "react";
 
 // to use store
-import { useSelector} from "react-redux";
-
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Checkout() {
   const product = useSelector((state) => state.cart);
+  const navigate = useNavigate();
 
   // --------------------------  for total--------------------------------
-  const [total,setTotal] = useState(0);
-  const doTotal = () =>{
-      let temp = 0;
-    for(let i=0; i<product.length; i++){
-        temp += product[i].prod.sellprice * product[i].ct;
-    } 
+  const [total, setTotal] = useState(0);
+  const doTotal = () => {
+    let temp = 0;
+    for (let i = 0; i < product.length; i++) {
+      temp += product[i].prod.sellprice * product[i].ct;
+    }
     setTotal(temp);
-  }
-  useEffect(()=>{
+  };
+  useEffect(() => {
     doTotal();
-  },[]);
+  }, []);
+
+  // to hold address field ---------
+  const [info, setInfo] = useState({
+    first_name: "",
+    last_name: "",
+    mobile: "",
+    email: "",
+    street: "",
+    city: "",
+    state: "",
+    country: "",
+    pincode: "",
+  });
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setInfo({ ...info, [name]: value });
+  };
+
+  // -------payment method select logic 
+  const [method, setMethod] = useState("cod");
+  const handleMethodSelect = (event) =>{
+    if(event.target.value !== "cod") setMethod("stripe");
+    else setMethod("cod");
+  }
 
   // ----------------payment gateway logic -------------
-  const makePayement = async() =>{
-    const stripe = await loadStripe("pk_test_51OwjhnSB1xcP5JJhrmFmPewWkKnCjsIWhHjxx4k62FWW5f4IVAuH0qqxtgxnGWUv6c3N8pluVlqJ3VQzwvH7Y4oH00kk1xM2J3");
-    
-    const body = {
-      products: product
-    }
+  const makePayement = async () => {
+    const stripe = await loadStripe(
+      "pk_test_51OwjhnSB1xcP5JJhrmFmPewWkKnCjsIWhHjxx4k62FWW5f4IVAuH0qqxtgxnGWUv6c3N8pluVlqJ3VQzwvH7Y4oH00kk1xM2J3"
+    );
 
-    // creating session 
-    const response = await fetch(`${process.env.REACT_APP_MY_IP}/checkoutSession`,{
-      method: "POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(body)
-    });
+    // creating address Object
+    const address = {
+      first_name: info.first_name,
+      last_name: info.last_name,
+      street: info.street,
+      city: info.city,
+      state: info.state,
+      country: info.country,
+      pincode: info.pincode,
+    };
+    const body = {
+      products: product,
+      address: address,
+      method: method,
+      amount: total,
+      mobile: info.mobile,
+      email: info.email,
+    };
+
+    // creating session
+    const response = await fetch(
+      `${process.env.REACT_APP_MY_IP}/checkout/`,
+      {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json",
+          "custmrtoken": localStorage.getItem("custmrtoken")
+        },
+        body: JSON.stringify(body),
+      }
+    );
 
     const session = await response.json();
-    localStorage.setItem('custmr_session_id', session.id);
+    
+    if(method === "cod") navigate('/Success');
+    
+    localStorage.setItem("custmr_session_id", session.id);
     const result = await stripe.redirectToCheckout({
-      sessionId:session.id
+      sessionId: session.id,
     });
 
-    if(result.error){
+    if (result.error) {
       console.log(result.error);
     }
-
-    // const response2 = await fetch(`${process.env.REACT_APP_MY_IP}/chekoutCompleted`,{
-    //   method: "POST",
-    //   headers: {
-    //     "Content-type": "application/json"
-    //   },
-    //   body: JSON.stringify({result:result})
-    // });
-    // const data = response2.json();
-    // console.log(data);
-  }
+  };
 
   // ---------------to put iteams in checkoutIteamGrid------------------------
   const placeIteams = product?.map((prod) => {
@@ -67,7 +107,10 @@ export default function Checkout() {
         {/* image division  */}
         <div id="checkoutIteamImg">
           <img
-            src={`${process.env.REACT_APP_MY_IP}/${prod.prod.images[0]}`.replace(/\\/g, "/")}
+            src={`${process.env.REACT_APP_MY_IP}/${prod.prod.images[0]}`.replace(
+              /\\/g,
+              "/"
+            )}
             alt=""
           />
         </div>
@@ -80,23 +123,23 @@ export default function Checkout() {
         </div>
 
         <div className="checkoutIteamContent flexCol">
-          <h2 className="checkoutSecHeading">Price: {prod.ct * prod.prod.sellprice}</h2>
+          <h2 className="checkoutSecHeading">
+            Price: {prod.ct * prod.prod.sellprice}
+          </h2>
           <div>Qnt: {prod.ct}</div>
         </div>
       </div>
     );
   });
 
-
-//   -----------------------------------------------------------------------------------
-//   -----------------------------Main Function----------------------------------------
-//   ----------------------------------------------------------------------------------
+  //   -----------------------------------------------------------------------------------
+  //   -----------------------------Main Function----------------------------------------
+  //   ----------------------------------------------------------------------------------
   return (
     <>
       <div className="flexCenter" id="chekoutOuterContainer">
         {/* --------------------------container which has all the parts in it ------------------------ */}
         <div id="checkoutInnerContainer" className="flexRow FlexCol">
-
           {/*---left container (it has only shiping info)--- */}
           <div id="checkoutShipping" className="checkoutShape flexCol">
             <h1 className="checkoutHeading">Shopping Cart</h1>
@@ -119,7 +162,7 @@ export default function Checkout() {
 
             {/* for printing total */}
             {/* For printing subtotal  */}
-            <div id="chekoutShippingTotal" style={{border:"transparent"}}>
+            <div id="chekoutShippingTotal" style={{ border: "transparent" }}>
               <div>
                 <h4>Total</h4>
                 <h4>{total}.00 Rs.</h4>
@@ -139,11 +182,25 @@ export default function Checkout() {
                 <div className="checkout2in1">
                   <div className="flexCol">
                     <label htmlFor="fname">First Name</label>
-                    <input type="txt" id="fname" name="fname" placeholder="Navneetkumar"/>
+                    <input
+                      type="txt"
+                      id="fname"
+                      name="first_name"
+                      placeholder="Navneetkumar"
+                      value={info.first_name}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="flexCol">
                     <label htmlFor="lname">Last Name</label>
-                    <input type="txt" id="lname" name="lname" placeholder="Thakor"/>
+                    <input
+                      type="txt"
+                      id="lname"
+                      name="last_name"
+                      placeholder="Thakor"
+                      value={info.last_name}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
@@ -151,29 +208,64 @@ export default function Checkout() {
                 <div className="checkout2in1">
                   <div className="flexCol">
                     <label htmlFor="email">Email</label>
-                    <input type="email" id="email" name="email" placeholder="tnavneet@gmail.com"/>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="tnavneet@gmail.com"
+                      value={info.email}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="flexCol">
                     <label htmlFor="mobilen">Mobile No.</label>
-                    <input type="number" id="mobilen" name="mobilen" placeholder="9966996699"/>
+                    <input
+                      type="number"
+                      id="mobile"
+                      name="mobile"
+                      placeholder="9966996699"
+                      value={info.mobile}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
                 {/* for address */}
                 <div className="flexCol checkout1in1">
-                  <label htmlFor="address">Address</label>
-                  <input type="txt" id="address" name="address" placeholder="1509, ramdevpura near khankuva, bhalej road"/>
+                  <label htmlFor="address">Street</label>
+                  <input
+                    type="txt"
+                    id="street"
+                    name="street"
+                    placeholder="1509, ramdevpura near khankuva, bhalej road"
+                    value={info.street}
+                    onChange={handleChange}
+                  />
                 </div>
 
                 {/* for city and state */}
                 <div className="checkout2in1">
                   <div className="flexCol">
                     <label htmlFor="city">City</label>
-                    <input type="txt" id="city" name="city" placeholder="Anand"/>
+                    <input
+                      type="txt"
+                      id="city"
+                      name="city"
+                      placeholder="Anand"
+                      value={info.city}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="flexCol">
                     <label htmlFor="state">State</label>
-                    <input type="txt" id="state" name="state" placeholder="Gujarat"/>
+                    <input
+                      type="txt"
+                      id="state"
+                      name="state"
+                      placeholder="Gujarat"
+                      value={info.state}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
 
@@ -181,14 +273,27 @@ export default function Checkout() {
                 <div className="checkout2in1">
                   <div className="flexCol">
                     <label htmlFor="country">Country</label>
-                    <input type="txt" id="country" name="country" placeholder="India"/>
+                    <input
+                      type="txt"
+                      id="country"
+                      name="country"
+                      placeholder="India"
+                      value={info.country}
+                      onChange={handleChange}
+                    />
                   </div>
                   <div className="flexCol">
                     <label htmlFor="pincode">Pincode</label>
-                    <input type="txt" id="pincode" name="pincode" placeholder="388205"/>
+                    <input
+                      type="txt"
+                      id="pincode"
+                      name="pincode"
+                      placeholder="388205"
+                      value={info.pincode}
+                      onChange={handleChange}
+                    />
                   </div>
                 </div>
-
               </div>
             </div>
 
@@ -199,30 +304,30 @@ export default function Checkout() {
               {/* patment related content  */}
               <div id="checkoutPaymentInfo">
                 <p htmlFor="selectPayment">Payment Method</p>
-                
+
                 <div id="checkoutRadioCont" className="flexCol">
                   <div className="flexRow">
-                    <input id="r1" type="radio" name="payment"/>
+                    <input id="r1" type="radio" name="payment" value="card" onChange={handleMethodSelect} />
                     <label htmlFor="r1">Credit/Debit Card</label>
                   </div>
                   <div className="flexRow">
-                    <input id="r2" type="radio" name="payment"/>
+                    <input id="r2" type="radio" value="netBanking" name="payment" onChange={handleMethodSelect}/>
                     <label htmlFor="r2">Net Banking</label>
                   </div>
                   <div className="flexRow">
-                    <input id="r3" type="radio" name="payment"/>
+                    <input id="r3" type="radio" value="upi" name="payment" onChange={handleMethodSelect}/>
                     <label htmlFor="r3">UPI</label>
                   </div>
                   <div className="flexRow">
-                    <input id="r4" type="radio" name="payment"/>
+                    <input id="r4" type="radio" value="cod" name="payment" onChange={handleMethodSelect}/>
                     <label htmlFor="r4">Cash On Delivery</label>
                   </div>
-
                 </div>
 
-                <button className="primButton" onClick={makePayement}>Proceed</button>
+                <button className="primButton" onClick={makePayement}>
+                  Proceed
+                </button>
               </div>
-
             </div>
 
             {/* payment over */}
