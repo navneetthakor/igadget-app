@@ -7,6 +7,7 @@ import { fadd, fremove } from "../store/FavoriteSlice";
 import { useDispatch } from "react-redux";
 import Navbar from "./Navbar";
 import { useNavigate } from "react-router-dom";
+import ReactStars from "react-rating-stars-component";
 
 export default function ProductPage() {
   const { prodp, load } = useContext(ProdPageContext);
@@ -14,7 +15,7 @@ export default function ProductPage() {
   let dummyimg;
   let url = process.env.REACT_APP_MY_IP;
 
-  // for navigation 
+  // for navigation
   const navigate = useNavigate();
 
   // ----------to change main image--------------
@@ -38,12 +39,12 @@ export default function ProductPage() {
   // ---------------------------add to cart--------------------------
   const dispatch = useDispatch();
   const handleAddToCart = async () => {
-    if(!localStorage.getItem("custmrtoken")) {
+    if (!localStorage.getItem("custmrtoken")) {
       alert("please login first");
-      navigate('/custmrlogin')
+      navigate("/custmrlogin");
       return;
     }
-    const updatedProd = { prodp, ct: ct };
+    const updatedProd = { prod: prodp, ct: ct };
     console.log(updatedProd);
     dispatch(add(updatedProd));
 
@@ -52,7 +53,7 @@ export default function ProductPage() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "custmrtoken": localStorage.getItem("custmrtoken")
+        custmrtoken: localStorage.getItem("custmrtoken"),
       },
       body: JSON.stringify({ product_id: prodp._id, quantity: ct }),
     });
@@ -65,14 +66,14 @@ export default function ProductPage() {
   };
 
   // --------------------------add to fav--------------------------
-  const handleAddToFav =  async () => {
-    if(!localStorage.getItem("custmrtoken")) {
+  const handleAddToFav = async () => {
+    if (!localStorage.getItem("custmrtoken")) {
       alert("please login first");
-      navigate('/custmrlogin')
+      navigate("/custmrlogin");
       return;
     }
 
-    const updatedProd = { prodp, ct: ct };
+    const updatedProd = { prod: prodp, ct: ct };
     dispatch(fadd(updatedProd));
 
     url += "/cart/addToFav";
@@ -80,7 +81,7 @@ export default function ProductPage() {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "custmrtoken": localStorage.getItem("custmrtoken")
+        custmrtoken: localStorage.getItem("custmrtoken"),
       },
       body: JSON.stringify({ product_id: prodp._id, quantity: ct }),
     });
@@ -137,13 +138,13 @@ export default function ProductPage() {
               <h1>{prodp.title} - leatest phone in the market</h1>
 
               {/* rating division  */}
-              <div id="totratings">
-                <span className="star"></span>
-                <span className="star"></span>
-                <span className="star"></span>
-                <span className="star"></span>
-                <span className="star"></span>
-              </div>
+              <ReactStars
+                value={3}
+                count={5}
+                size={35}
+                activeColor="#ffd700"
+                edit={false}
+              />
 
               {/* overview division */}
               <div className="flexRow">
