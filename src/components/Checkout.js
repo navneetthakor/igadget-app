@@ -54,6 +54,13 @@ export default function Checkout() {
       "pk_test_51OwjhnSB1xcP5JJhrmFmPewWkKnCjsIWhHjxx4k62FWW5f4IVAuH0qqxtgxnGWUv6c3N8pluVlqJ3VQzwvH7Y4oH00kk1xM2J3"
     );
 
+    // check whethe any field is empty or not 
+    for(let i in info){
+      if(info[i] === "") {
+        alert("please fill all the fields");
+        return;
+      }
+    }
     // creating address Object
     const address = {
       first_name: info.first_name,

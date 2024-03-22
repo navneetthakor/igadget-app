@@ -45,3 +45,8 @@ function App() {
 }
 
 export default App;
+
+// version-2 completed on 22/03/2024 at 23:28 PM 
+// ------functionality left 
+// 1. cancel and success page design 
+// 2. rating component dynamic behaviour 
