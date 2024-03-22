@@ -1,5 +1,6 @@
 // this is for checkout page
-import React, { useState } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import React, { useEffect, useState } from "react";
 
 // to use store
 import { useSelector} from "react-redux";
@@ -13,9 +14,50 @@ export default function Checkout() {
   const doTotal = () =>{
       let temp = 0;
     for(let i=0; i<product.length; i++){
-        temp += product[i].price * product[i].ct;
+        temp += product[i].prod.sellprice * product[i].ct;
     } 
     setTotal(temp);
+  }
+  useEffect(()=>{
+    doTotal();
+  },[]);
+
+  // ----------------payment gateway logic -------------
+  const makePayement = async() =>{
+    const stripe = await loadStripe("pk_test_51OwjhnSB1xcP5JJhrmFmPewWkKnCjsIWhHjxx4k62FWW5f4IVAuH0qqxtgxnGWUv6c3N8pluVlqJ3VQzwvH7Y4oH00kk1xM2J3");
+    
+    const body = {
+      products: product
+    }
+
+    // creating session 
+    const response = await fetch(`${process.env.REACT_APP_MY_IP}/checkoutSession`,{
+      method: "POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(body)
+    });
+
+    const session = await response.json();
+    localStorage.setItem('custmr_session_id', session.id);
+    const result = await stripe.redirectToCheckout({
+      sessionId:session.id
+    });
+
+    if(result.error){
+      console.log(result.error);
+    }
+
+    // const response2 = await fetch(`${process.env.REACT_APP_MY_IP}/chekoutCompleted`,{
+    //   method: "POST",
+    //   headers: {
+    //     "Content-type": "application/json"
+    //   },
+    //   body: JSON.stringify({result:result})
+    // });
+    // const data = response2.json();
+    // console.log(data);
   }
 
   // ---------------to put iteams in checkoutIteamGrid------------------------
@@ -25,20 +67,20 @@ export default function Checkout() {
         {/* image division  */}
         <div id="checkoutIteamImg">
           <img
-            src={`${process.env.REACT_APP_MY_IP}/${prod.images[0]}`.replace(/\\/g, "/")}
+            src={`${process.env.REACT_APP_MY_IP}/${prod.prod.images[0]}`.replace(/\\/g, "/")}
             alt=""
           />
         </div>
 
         {/* content division  */}
         <div className="checkoutIteamContent flexCol">
-          <h2 className="checkoutSecHeading">{prod.title}</h2>
-          <div>height: {prod.height}</div>
-          <div>width: {prod.width}</div>
+          <h2 className="checkoutSecHeading">{prod.prod.title}</h2>
+          {/* <div>height: {prod.prod.height}</div>
+          <div>width: {prod.prod.width}</div> */}
         </div>
 
         <div className="checkoutIteamContent flexCol">
-          <h2 className="checkoutSecHeading">Price: {prod.ct * prod.price}</h2>
+          <h2 className="checkoutSecHeading">Price: {prod.ct * prod.prod.sellprice}</h2>
           <div>Qnt: {prod.ct}</div>
         </div>
       </div>
@@ -51,7 +93,7 @@ export default function Checkout() {
 //   ----------------------------------------------------------------------------------
   return (
     <>
-      <div className="flexCenter" id="chekoutOuterContainer" onLoad={doTotal}>
+      <div className="flexCenter" id="chekoutOuterContainer">
         {/* --------------------------container which has all the parts in it ------------------------ */}
         <div id="checkoutInnerContainer" className="flexRow FlexCol">
 
@@ -178,7 +220,7 @@ export default function Checkout() {
 
                 </div>
 
-                <button className="primButton">Proceed</button>
+                <button className="primButton" onClick={makePayement}>Proceed</button>
               </div>
 
             </div>

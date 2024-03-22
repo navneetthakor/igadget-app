@@ -43,7 +43,8 @@ export default function ProductPage() {
       navigate('/custmrlogin')
       return;
     }
-    const updatedProd = { ...prodp, ct: ct };
+    const updatedProd = { prodp, ct: ct };
+    console.log(updatedProd);
     dispatch(add(updatedProd));
 
     url += "/cart/addToCart";
@@ -71,7 +72,7 @@ export default function ProductPage() {
       return;
     }
 
-    const updatedProd = { ...prodp, ct: ct };
+    const updatedProd = { prodp, ct: ct };
     dispatch(fadd(updatedProd));
 
     url += "/cart/addToFav";

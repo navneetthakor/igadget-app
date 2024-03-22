@@ -16,6 +16,8 @@ import Checkout from './components/Checkout';
 import UserAcount from './components/UserAcount';
 import SubMenu from './components/SubMenu';
 import CustomerLogin from './components/CustomerLogin';
+import Success from './components/Success';
+import Cancel from './components/Cancel';
 function App() {
 
   const router = createBrowserRouter(createRoutesFromElements(
@@ -30,6 +32,8 @@ function App() {
         <Route exact path='/checkout' element={<Checkout/>}/>
         <Route exact path='/menu' element={<SubMenu/>}/>
         <Route exact path='/custmrlogin' element={<CustomerLogin/>}/>
+        <Route exact path='/success' element={<Success/>}/>
+        <Route exact path='/cancel' element={<Cancel/>}/>
     </Route>
     
   ))

@@ -9,7 +9,7 @@ const favoriteSlice = createSlice({
             state.push(action.payload);
         },
         fremove(state, action){
-            return state.filter((iteam) => iteam._id !== action.payload)
+            return state.filter((iteam) => iteam.prod._id !== action.payload)
         },
         setFav(state, action){
             return [...action.payload]

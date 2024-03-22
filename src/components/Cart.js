@@ -15,14 +15,14 @@ export default function Cart() {
 
   //function to remove iteam from card
   const removeToCart = async (prod) => {
-    dispatch(remove(prod._id));
+    dispatch(remove(prod.prod._id));
     const response = await fetch(url, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
         "custmrtoken": localStorage.getItem("custmrtoken")
       },
-      body: JSON.stringify({"product_id": prod._id}),
+      body: JSON.stringify({"product_id": prod.prod._id}),
     })
     const res = await response.json();
     console.log(res);
@@ -49,20 +49,20 @@ export default function Cart() {
         <img className="disableCss DisBlockCss" style={{margin: "5px 15px"}} src={removeIcon} height="15px" width="15px" alt="remove" onClick={() => removeToCart(prodp)} />
         <div className="cartIteamImg ">
           <img
-            src={`${process.env.REACT_APP_MY_IP}/${prodp.images[0]}`.replace(/\\/g, "/")}
+            src={`${process.env.REACT_APP_MY_IP}/${prodp.prod.images[0]}`.replace(/\\/g, "/")}
             alt=""
           />
         </div>
 
         <div className="CartContent cartIteamContent flexRow">
           <div className="CartContentIteam cartIteamTitle flexCol">
-            <h2 className="checkoutSecHeading">{prodp.title}</h2>
-            <div>height: {prodp.height}</div>
-            <div>width: {prodp.width}</div>
+            <h2 className="checkoutSecHeading">{prodp.prod.title}</h2>
+            {/* <div>height: {prodp.prod.height}</div>
+            <div>width: {prodp.prod.width}</div> */}
           </div>
 
           <div className="CartContentIteam cartIteamTitle flexCol">
-            <h2 className="fCartExt checkoutSecHeading">Price: {prodp.price * prodp.ct}</h2>
+            <h2 className="fCartExt checkoutSecHeading">Price: {prodp.prod.sellprice * prodp.ct}</h2>
             <div className="fCartExt">Qnt: {prodp.ct}</div>
           </div>
 
