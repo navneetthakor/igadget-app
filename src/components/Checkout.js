@@ -94,6 +94,10 @@ export default function Checkout() {
     );
 
     const session = await response.json();
+    if(session.signal === 'red'){
+      alert("Server is not responding please try later!!!");
+      return;
+    }
     
     if(method === "cod") navigate('/Success');
     

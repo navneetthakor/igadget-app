@@ -1,6 +1,9 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Success() {
+  // for navigation 
+  const navigate = useNavigate();
 
   const checkoutSuccesful = async() => {
     if(localStorage.getItem("custmr_session_id")){
@@ -10,7 +13,7 @@ export default function Success() {
         headers: {
           "Content-type": "application/json"
         },
-        body: JSON.stringify({session_id: localStorage.getItem('custmr_session_id'), custmrtoken: localStorage.getItem('custmrtoken')})
+        body: JSON.stringify({session_id: localStorage.getItem('custmr_session_id'), status: 'Completed'})
       });
       const data = await response2.json();
       
@@ -19,6 +22,9 @@ export default function Success() {
   }
   useEffect( () => {
     checkoutSuccesful();
+    setTimeout(() => {
+      navigate('/');
+    }, 3000);
   });
   return (
   <>
