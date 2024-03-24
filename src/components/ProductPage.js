@@ -293,7 +293,6 @@ export default function ProductPage() {
                   style={{ width: "40vw" }}
                   className="disableCss DisBlockCss primButton"
                   onClick={handleAddToCart}
-                  // onClick={() => alert(totRating)}
                 >
                   Add To Cart
                 </button>
@@ -308,42 +307,29 @@ export default function ProductPage() {
             </div>
           </div>
 
-          {/* descrioption division  */}
+          {/* description division  */}
           <div id="pDesc" className="container flexCol">
             <h2>Description :-</h2>
             <h3>{prodp.desc}</h3>
           </div>
 
-          {/* Reviews  */}
+          {/*----------- Reviews --------- */}
           <div
-            style={{
-              border: "2px solid lightgray",
-              padding: "5%",
-            }}
+            id="reviewContainer"
             className="container flexCol"
           >
             <h2>Customer reviews</h2>
             <div
-              style={{
-                minHeight: "50%",
-                marginTop: "3%",
-              }}
+              id="reviewInnerContainer"
             >
               {rating?.map((review) => {
                 return (
                   <div
                     className="flexRow"
-                    style={{ marginTop: "2%" }}
                     key={review}
                   >
                     <div
-                      style={{
-                        border: "1px solid blue",
-                        height: "50px",
-                        width: "50px",
-                        borderRadius: "50%",
-                        overflow: "hidden",
-                      }}
+                      id="reviewCustmrAvtar"
                     >
                       <img src={sampleImg} height="100%" width="100%" alt="" />
                     </div>
@@ -368,9 +354,10 @@ export default function ProductPage() {
 
             {/* to add review */}
             <button className="primButton" onClick={toggleReviewBlock}>
-              Add review
+              review +
             </button>
           </div>
+          
           <div
             id="reviewBlock"
             className="disableCss"
