@@ -425,6 +425,15 @@
         height:max-content;
     }
 
+    /* --- Review seciton of product page ---  */
+    #reviewBlock{
+        top: 200px;
+        left: 20px;
+        width: 90%;
+    }
+    #reviewBlock textarea{
+        width:  93%;
+    }
 
     /* ----------------------------------------------- */
     /* -----------for Prods ---------------------------- */

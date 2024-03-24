@@ -323,19 +323,21 @@ export default function ProductPage() {
               id="reviewInnerContainer"
             >
               {rating?.map((review) => {
+                console.log(review);
                 return (
                   <div
                     className="flexRow"
-                    key={review}
+                    style={{marginBottom: "20px"}}
+                    key={review.customer_id}
                   >
                     <div
                       id="reviewCustmrAvtar"
                     >
                       <img src={sampleImg} height="100%" width="100%" alt="" />
                     </div>
-                    <div className="flexCol" style={{ marginLeft: "3%" }}>
+                    <div className="flexCol" style={{ marginLeft: "3%", width: "80%" }}>
                       <h4>{review.name}</h4>
-                      <div style={{ marginTop: "2%" }}>
+                      <div style={{ marginTop: "5px" }}>
                         <Rating
                           readonly
                           initialRating={review.rate}
@@ -352,7 +354,7 @@ export default function ProductPage() {
               })}
             </div>
 
-            {/* to add review */}
+            {/* to add and update review */}
             <button className="primButton" onClick={toggleReviewBlock}>
               review +
             </button>
@@ -361,21 +363,9 @@ export default function ProductPage() {
           <div
             id="reviewBlock"
             className="disableCss"
-            style={{
-              paddingLeft: "5%",
-              borderRadius: "8px",
-              position: "fixed",
-              top: 150,
-              left: 200,
-              height: "500px",
-              width: "70%",
-              zIndex: "100000",
-              boxShadow: "2px 2px 500px black",
-              backgroundColor: "white",
-            }}
           >
             <GiCancel
-              style={{ cursor: "pointer", marginLeft: "95%", marginTop: "2%" }}
+              style={{ cursor: "pointer", marginLeft: "90%", marginTop: "2%" }}
               color="royalblue"
               size={25}
               onClick={toggleReviewBlock}
@@ -399,15 +389,15 @@ export default function ProductPage() {
                 style={{ padding: "8px" }}
                 placeholder="Very useful product"
                 rows={10}
-                cols={55}
+                // cols={30}
                 onChange={handleDescChange}
               />
             </div>
             <button
-              style={{ marginTop: "3%" }}
+            style={{ marginTop: "3%" }}
               className="primButton"
               onClick={addReview}
-            >
+              >
               Submit
             </button>
           </div>
