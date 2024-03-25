@@ -24,11 +24,32 @@ export default function Success() {
     checkoutSuccesful();
     setTimeout(() => {
       navigate('/');
-    }, 3000);
+    }, 1500);
   });
   return (
-  <>
-  <div>Successful</div>
-  </>
+  <div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    height: '100vh'
+  }}
+  >
+  <div
+  style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    height: '30vh',
+    width: '50vh',
+    backgroundColor: 'green',
+    color: 'white',
+    borderRadius: '8px',
+    // textShadow: '2px 2px 10px black',
+    boxShadow: '2px 2px 500px black',
+    fontSize: '5vh'
+  }}
+  >Successful</div>
+  </div>
   );
 }
