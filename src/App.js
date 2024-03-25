@@ -50,3 +50,9 @@ export default App;
 // ------functionality left 
 // 1. cancel and success page design 
 // 2. rating component dynamic behaviour 
+// 3. user-page 3 buttons functionality
+
+// verstion-2 functionality added  on 25/03/2024
+// 1 and 2 completed 
+// --------Functionality left 
+// 3. user-page 3 buttons functionality 
