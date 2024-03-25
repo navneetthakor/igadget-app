@@ -125,7 +125,6 @@ export default function RootLayout() {
       },
     })
     const data = await response.json();
-    console.log("your",{...data.cart.cart_prods});
     dispatch(setCart(data.cart.cart_prods));
     dispatch(setFav(data.cart.fav_prods));
   }

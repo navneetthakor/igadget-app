@@ -132,10 +132,12 @@ export default function ProductPage() {
   };
 
   useEffect(() => {
-    fetchReviews();
-    setTimeout(() => {
-      countRating();
-    }, 1000);
+    if(tempRating.length < 1){
+      fetchReviews();
+      setTimeout(() => {
+        countRating();
+      }, 1000);
+    }
   }, []);
 
   // ---------------Reivew box related logic ---------
@@ -246,7 +248,6 @@ export default function ProductPage() {
                 />
 
                 <button
-                  onClick={() => alert(totRating)}
                   style={{
                     color: "orangered",
                     fontSize: "13px",
