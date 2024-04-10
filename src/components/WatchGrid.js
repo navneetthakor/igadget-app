@@ -7,6 +7,8 @@ import WatchContext from "../contexts/WatchContext";
 import { useNavigate } from "react-router-dom";
 import CommonContext from "../contexts/CommonContext";
 
+
+
 export default function WatchGrid() {
   let { watch, load } = useContext(WatchContext);
   watch = Array.from(watch);
@@ -19,7 +21,7 @@ export default function WatchGrid() {
 
   const searchData = async () => {
     // api call
-    const url = `${process.env.REACT_APP_MY_IP}/storeproducts/fetchnamedprods?prodname=watch`;
+    const url = `${process.env.REACT_APP_MY_IP}/product/fetchcategoryprods?category=watch`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -30,7 +32,9 @@ export default function WatchGrid() {
     setCommon(data);
     navigate("/prods");
   };
+  
 
+  // while loop marked for removal -----
   while (watch === undefined)
     return (
       <>

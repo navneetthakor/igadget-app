@@ -322,9 +322,11 @@
         border-radius: 5px;
     }
 
-    .fCart button {
-        margin-top: 2vh;
-        margin-left: 1vw;
+    .fCart #mobileButton {
+        display: inline;
+        margin-inline: auto;
+        margin-top: 2%;
+        margin-bottom: 2%;
     }
 
     .cartIteamImg {
@@ -423,6 +425,15 @@
         height:max-content;
     }
 
+    /* --- Review seciton of product page ---  */
+    #reviewBlock{
+        top: 200px;
+        left: 20px;
+        width: 90%;
+    }
+    #reviewBlock textarea{
+        width:  93%;
+    }
 
     /* ----------------------------------------------- */
     /* -----------for Prods ---------------------------- */

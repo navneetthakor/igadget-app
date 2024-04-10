@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
 
 // store related imports
-import store from "../store/Store";
-import { Provider } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setCart } from "../store/CartSlice";
+import { setFav} from "../store/FavoriteSlice";
 
 // importing contexts
 import WatchContext from "../contexts/WatchContext";
@@ -36,7 +37,7 @@ export default function RootLayout() {
   const getWatch = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/storeproducts/fetchlimitprods?page=1&pageSize=6&prodname=watch`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=4&category=watch`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -47,7 +48,8 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setWatch(data);
+    console.log(data);
+    setWatch(data.products);
   };
 
   // -------MobileContext--------------
@@ -56,7 +58,7 @@ export default function RootLayout() {
   const getMobile = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/storeproducts/fetchlimitprods?page=1&pageSize=6&prodname=mobile`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=mobile`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -66,7 +68,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setMobile(data);
+    setMobile(data.products);
   };
 
   // -------LaptopContext--------------
@@ -75,7 +77,7 @@ export default function RootLayout() {
   const getLaptop = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/storeproducts/fetchlimitprods?page=1&pageSize=6&prodname=laptop`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=4&category=laptop`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -85,7 +87,7 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setLaptop(data);
+    setLaptop(data.products);
   };
 
   // -------HeadphContext--------------
@@ -94,7 +96,7 @@ export default function RootLayout() {
   const getHeadph = async () => {
     // api call
     const url =
-    `${process.env.REACT_APP_MY_IP}/storeproducts/fetchlimitprods?page=1&pageSize=6&prodname=headph`;
+    `${process.env.REACT_APP_MY_IP}/product/fetchlimitprods?page=1&pageSize=6&category=headph`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
@@ -104,21 +106,41 @@ export default function RootLayout() {
       },
     });
     const data = await response.json();
-    setHeadph(data);
+    setHeadph(data.products);
   };
+
+  // to add all the available products is cart 
+  const dispatch = useDispatch();
+  const setCarts = async()=>{
+    if(!localStorage.getItem('custmrtoken')) return;
+    // api call
+    const url =
+    `${process.env.REACT_APP_MY_IP}/cart/getCart`;
+
+    const response = await fetch(url,{
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "custmrtoken": localStorage.getItem('custmrtoken')
+      },
+    })
+    const data = await response.json();
+    dispatch(setCart(data.cart.cart_prods));
+    dispatch(setFav(data.cart.fav_prods));
+  }
 
   useEffect(() => {
     getWatch();
     getMobile();
     getHeadph();
     getLaptop();
+    setCarts();
     setLoad(true);
   }, []);
 
   return (
     <>
       {load ? (
-        <Provider store={store}>
           <CommonContext.Provider value={{ common, setCommon }}>
             <WatchContext.Provider value={{ watch, setWatch, load }}>
               <MobileContext.Provider value={{ mobile, setMobile, load }}>
@@ -126,7 +148,7 @@ export default function RootLayout() {
                   <LaptopContext.Provider value={{ laptop, setLaptop, load }}>
                     <ProdPageContext.Provider value={{ prodp, setProdp, load }}>
                       <main>
-                        <Outlet />
+                        <Outlet setCarts={setCarts} />
                       </main>
                     </ProdPageContext.Provider>
                   </LaptopContext.Provider>
@@ -134,7 +156,6 @@ export default function RootLayout() {
               </MobileContext.Provider>
             </WatchContext.Provider>
           </CommonContext.Provider>
-        </Provider>
       ) : (
         <LoadIndicator />
       )}

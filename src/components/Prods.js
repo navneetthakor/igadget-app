@@ -9,7 +9,7 @@ import Navbar from './Navbar';
 export default function Prods() {
 
     let {common} = useContext(CommonContext);
-    
+    console.log(common);
   return (
     <>
        <Navbar/>

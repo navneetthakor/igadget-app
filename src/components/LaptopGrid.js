@@ -18,7 +18,7 @@ export default function LaptopGrid() {
 
   const searchData = async () => {
     // api call
-    const url = `${process.env.REACT_APP_MY_IP}/storeproducts/fetchnamedprods?prodname=laptop`;
+    const url = `${process.env.REACT_APP_MY_IP}/product/fetchcategoryprods?category=laptop`;
     const response = await fetch(url, {
       method: "POST",
       headers: {
